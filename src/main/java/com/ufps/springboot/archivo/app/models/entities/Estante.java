@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -20,6 +22,8 @@ public class Estante implements Serializable {
 	private String numero;
 	private int columnas;
 	private int filas;
+	@ManyToOne
+	@JoinColumn(name = "bloque")
 	private Bloque bloque;
 	
 	//---------------------------------------------------------

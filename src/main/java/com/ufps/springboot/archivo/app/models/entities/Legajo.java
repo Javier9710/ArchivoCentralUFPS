@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +29,9 @@ public class Legajo implements Serializable {
 	private String rangoFecha;
 	private String Nlegajo;
 	private String totalFoleos;
+	@ManyToOne
+	@JoinColumn(name = "caja")
+	private Caja caja;
 	
 	//--------------------------------------------------
 	

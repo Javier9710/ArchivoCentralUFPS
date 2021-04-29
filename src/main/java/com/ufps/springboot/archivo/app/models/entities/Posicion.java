@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +25,8 @@ public class Posicion implements Serializable {
 	private Long id;
 	private String columna;
 	private String fila;
+	@ManyToOne
+	@JoinColumn(name = "estante")
 	private Estante estante;
 	
 	

@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -33,6 +35,8 @@ public class Caja implements Serializable {
 	private String observaciones;
 	private int expediente;
 	private String tipoCaja;
+	@OneToOne
+	@JoinColumn(name = "espacio")
 	private Espacio espacio;
 	
 	//--------------------------------------------------

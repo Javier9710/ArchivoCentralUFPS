@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -24,7 +26,11 @@ public class Espacio implements Serializable {
 	private String columna;
 	private String fila;
 	private Boolean estado;
+	@ManyToOne
+	@JoinColumn(name = "posicion")
 	private Posicion posicion;
+	@ManyToOne
+	@JoinColumn(name = "dependencia")
 	private Dependencia dependencia;
 	
 	//------------------------------------------
