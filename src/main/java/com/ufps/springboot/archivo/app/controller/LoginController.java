@@ -19,7 +19,9 @@ public class LoginController {
 		
 		if (principal!=null) {
 			flash.addFlashAttribute("info","Ya habia una sesion iniciada");
+			System.out.println("yas");
 			return "redirect:/";
+			
 			
 		}
 		if (error!=null) {
