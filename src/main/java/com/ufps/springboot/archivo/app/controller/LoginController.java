@@ -16,10 +16,12 @@ public class LoginController {
 			@RequestParam(value = "logout",required = false) String logout,
 			Model model, Principal principal, 
 			RedirectAttributes flash) {
+
 		
 		if (principal!=null) {
 			flash.addFlashAttribute("info","Ya habia una sesion iniciada");
 			System.out.println("yas");
+			System.out.println("mensaje"+principal);
 			return "redirect:/";
 			
 			
@@ -32,6 +34,9 @@ public class LoginController {
 			model.addAttribute("success", "Ha Cerrado Sesion con exito");
 			
 		}
+		
+		
+		
 		
 		return "login";
 		
