@@ -60,7 +60,7 @@ xmlns:th="http://www.thymeleaf.org"
       <!-- Messages Dropdown Menu -->
             <div class="mt-1 pb-1 mb-1 d-flex">
         <div class="image">
-          <img width="50" height="50" src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img width="50" height="50" src="dist/img/admin.png" class="img-circle elevation-2" alt="User Image">
         </div>
         
          <a class="nav-link" data-toggle="dropdown" href="#">
@@ -89,7 +89,7 @@ xmlns:th="http://www.thymeleaf.org"
       <!-- Messages Dropdown Menu -->
             <div class="mt-1 pb-1 mb-1 d-flex">
         <div class="image">
-          <img width="50" height="50" src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img width="50" height="50" src="dist/img/user.png" class="img-circle elevation-2" alt="User Image">
         </div>
         
          <a class="nav-link" data-toggle="dropdown" href="#">
@@ -185,9 +185,9 @@ xmlns:th="http://www.thymeleaf.org"
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="./index.html" class="nav-link">
+                <a href="/espacios" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Registro de Estantes</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -275,14 +275,6 @@ xmlns:th="http://www.thymeleaf.org"
 
   <!-- Content Wrapper. Contains page content -->
 
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.1.0
-    </div>
-  </footer>
 
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
@@ -290,6 +282,14 @@ xmlns:th="http://www.thymeleaf.org"
   </aside>
   <!-- /.control-sidebar -->
 </div>
+
+  <footer class="main-footer" th:fragment="Footer">
+    <strong>UFPS &copy; 2021 <a>AdminLTE.io</a>.</strong>
+    All rights reserved.
+    <div class="float-right d-none d-sm-inline-block">
+      <b>Version</b> 1.0
+    </div>
+  </footer>
 
 <div th:fragment="Scripts">
 <!-- jQuery -->

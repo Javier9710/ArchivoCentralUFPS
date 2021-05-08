@@ -15,8 +15,9 @@ public class Bloque implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Id
+	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
 	private Long id;
 	private String letra;
 	private String ubicacion;

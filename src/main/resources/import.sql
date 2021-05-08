@@ -6,4 +6,7 @@ INSERT INTO users(enable, nombre, password, username) VALUES (1,'Maria Archivo',
 INSERT INTO authorities(authority, user_id) VALUES ('ROLE_ADMIN',1);
 INSERT INTO authorities(authority, user_id) VALUES ('ROLE_USER',2);
 
+//Dependencias
+INSERT INTO dependencias(descripcion, nombre) VALUES ('Encargadas de Actas de grado', 'Secretaria General');
+
  
