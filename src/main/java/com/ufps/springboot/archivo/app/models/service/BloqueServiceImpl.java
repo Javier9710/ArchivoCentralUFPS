@@ -18,4 +18,9 @@ public class BloqueServiceImpl implements IBloqueService {
 		
 	}
 
+	@Override
+	public Bloque findByLetra(String letra) {
+		return bloqueDao.findByLetra(letra);
+	}
+
 }

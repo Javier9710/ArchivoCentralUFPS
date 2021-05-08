@@ -6,6 +6,8 @@ public interface IBloqueService {
 	
 	public void save(Bloque bloque);
 	
+	public Bloque findByLetra(String letra);
+	
 	
 
 }

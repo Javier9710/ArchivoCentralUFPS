@@ -37,9 +37,19 @@ public class AdminController {
 	
 	@PostMapping(value = "/espacios")
 	public String registrarBloque(@Valid Bloque bloque, BindingResult result, Model model) {
-		System.out.println("verdad------"+ bloque.getLetra());
-		System.out.println("verdad------"+ bloque.getUbicacion());
-		System.out.println("verdad------"+ bloque.getId());
+		
+		if (result.hasErrors()) {
+			model.addAttribute("titulo", "ya existe");
+			return "espacios";
+			
+		}
+		Bloque x= bloqueService.findByLetra(bloque.getLetra());
+		System.out.println("------------------------"+x);
+		System.out.println("------------------------"+bloque.getLetra());
+		if (x!=null) {
+			model.addAttribute("titulo", "ya existe");
+			return "espacios";
+		}
 		bloqueService.save(bloque);
 		model.addAttribute("titulo", "se registro");
 		
