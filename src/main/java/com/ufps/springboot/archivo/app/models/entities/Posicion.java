@@ -13,18 +13,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "posiciones")
 public class Posicion implements Serializable {
-	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 	
-	
-	@Id
+
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
 	private Long id;
-	private String columna;
-	private String fila;
+	private int columna;
+	private int fila;
 	@ManyToOne
 	@JoinColumn(name = "estante")
 	private Estante estante;
@@ -37,7 +34,7 @@ public class Posicion implements Serializable {
 		
 	}
 	
-	public Posicion(Long id, String columna, String fila, Estante estante) {
+	public Posicion(Long id, int columna, int fila, Estante estante) {
 		this.id = id;
 		this.columna = columna;
 		this.fila = fila;
@@ -52,19 +49,19 @@ public class Posicion implements Serializable {
 		this.id = id;
 	}
 
-	public String getColumna() {
+	public int getColumna() {
 		return columna;
 	}
 
-	public void setColumna(String columna) {
+	public void setColumna(int columna) {
 		this.columna = columna;
 	}
 
-	public String getFila() {
+	public int getFila() {
 		return fila;
 	}
 
-	public void setFila(String fila) {
+	public void setFila(int fila) {
 		this.fila = fila;
 	}
 

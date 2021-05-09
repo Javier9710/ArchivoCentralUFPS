@@ -1,0 +1,11 @@
+package com.ufps.springboot.archivo.app.models.dao;
+
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.ufps.springboot.archivo.app.models.entities.Posicion;
+
+public interface IPosicionDao extends CrudRepository<Posicion, Long> {
+	
+
+}

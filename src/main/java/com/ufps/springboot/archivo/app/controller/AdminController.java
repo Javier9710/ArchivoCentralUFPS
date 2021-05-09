@@ -64,14 +64,10 @@ public class AdminController {
 	@PostMapping(value = "/estantes")
 	public String registrarEstantes(@RequestParam(value = "bloque2") Long id, @Valid Estante estante, BindingResult result, Model model) {
 		Bloque x = bloqueService.findOne(id);
-		if (x==null) {
-			model.addAttribute("mensaje","La letra no existe");
-			return "espacios";
-			
-		}
-
 		estante.setBloque(x);
 		estanteService.save(estante);
+		estanteService.generar(estante);
+		
 		return "redirect:espacios";
 	}
 

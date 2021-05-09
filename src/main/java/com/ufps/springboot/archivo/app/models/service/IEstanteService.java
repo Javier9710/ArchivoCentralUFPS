@@ -3,6 +3,7 @@ package com.ufps.springboot.archivo.app.models.service;
 //import java.util.List;
 
 import com.ufps.springboot.archivo.app.models.entities.Estante;
+import com.ufps.springboot.archivo.app.models.entities.Posicion;
 
 public interface IEstanteService {
 	
@@ -11,6 +12,8 @@ public interface IEstanteService {
 	//public Bloque findByLetra(String letra);
 	
 	//public List<Bloque> findAll();
+	
+	public void savePosicion(Posicion posicion);
 	
 	
 
