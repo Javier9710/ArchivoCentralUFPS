@@ -1,5 +1,7 @@
 package com.ufps.springboot.archivo.app.models.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +23,11 @@ public class BloqueServiceImpl implements IBloqueService {
 	@Override
 	public Bloque findByLetra(String letra) {
 		return bloqueDao.findByLetra(letra);
+	}
+
+	@Override
+	public List<Bloque> findAll() {
+		return (List<Bloque>)bloqueDao.findAll();
 	}
 
 }

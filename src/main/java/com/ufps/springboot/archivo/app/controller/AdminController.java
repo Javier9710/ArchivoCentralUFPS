@@ -1,5 +1,7 @@
 package com.ufps.springboot.archivo.app.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.ufps.springboot.archivo.app.models.entities.Bloque;
+import com.ufps.springboot.archivo.app.models.entities.Estante;
 import com.ufps.springboot.archivo.app.models.service.BloqueServiceImpl;
 
 @Controller
@@ -29,8 +32,14 @@ public class AdminController {
 	@GetMapping(value = "/espacios")
 	public String crearBloque(Model model) {
 		Bloque bloque = new Bloque();
-		model.addAttribute("titulo", "Registro de Bloques");
+		Estante estante = new Estante();
+		List<Bloque> bloques = bloqueService.findAll();
+		
+		model.addAttribute("lista", bloques);
+
 		model.addAttribute("bloque", bloque);
+		model.addAttribute("estante", estante);
+		
 		
 		return "espacios";
 	}
@@ -43,17 +52,22 @@ public class AdminController {
 			return "espacios";
 			
 		}
+		
+		System.out.println("------------ entra 1");
+		List<Bloque> bloques = bloqueService.findAll();
+		model.addAttribute("lista", bloques);
+		System.out.println("------------ entra 2");
+		
 		Bloque x= bloqueService.findByLetra(bloque.getLetra());
-		System.out.println("------------------------"+x);
-		System.out.println("------------------------"+bloque.getLetra());
 		if (x!=null) {
-			model.addAttribute("titulo", "ya existe");
 			return "espacios";
 		}
+
+		
 		bloqueService.save(bloque);
 		model.addAttribute("titulo", "se registro");
 		
-		return "espacios";
+		return "redirect:espacios";
 	}
 
 
