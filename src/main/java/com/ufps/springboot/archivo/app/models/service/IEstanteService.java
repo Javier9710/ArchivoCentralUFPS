@@ -1,5 +1,7 @@
 package com.ufps.springboot.archivo.app.models.service;
 
+import com.ufps.springboot.archivo.app.models.entities.Espacio;
+
 //import java.util.List;
 
 import com.ufps.springboot.archivo.app.models.entities.Estante;
@@ -14,6 +16,8 @@ public interface IEstanteService {
 	//public List<Bloque> findAll();
 	
 	public void savePosicion(Posicion posicion);
+	
+	public void saveEspacio(Espacio espacio);
 	
 	
 

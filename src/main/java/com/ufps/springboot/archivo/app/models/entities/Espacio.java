@@ -23,8 +23,6 @@ public class Espacio implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String columna;
-	private String fila;
 	private Boolean estado;
 	@ManyToOne
 	@JoinColumn(name = "posicion")
@@ -40,10 +38,8 @@ public class Espacio implements Serializable {
 	}
 
 
-	public Espacio(Long id, String columna, String fila, Boolean estado, Posicion posicion, Dependencia dependencia) {
+	public Espacio(Long id, Boolean estado, Posicion posicion, Dependencia dependencia) {
 		this.id = id;
-		this.columna = columna;
-		this.fila = fila;
 		this.estado = estado;
 		this.posicion = posicion;
 		this.dependencia = dependencia;
@@ -58,27 +54,6 @@ public class Espacio implements Serializable {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-
-	public String getColumna() {
-		return columna;
-	}
-
-
-	public void setColumna(String columna) {
-		this.columna = columna;
-	}
-
-
-	public String getFila() {
-		return fila;
-	}
-
-
-	public void setFila(String fila) {
-		this.fila = fila;
-	}
-
 
 	public Boolean getEstado() {
 		return estado;
