@@ -9,6 +9,13 @@ import com.ufps.springboot.archivo.app.models.entities.Dependencia;
 @Controller
 public class DependenciaController {
 	
+	@GetMapping(value = "/listaDependencia")
+	public String listar(Model model) {
+		
+		return "listaDependencia";
+		
+	}
+	
 	@GetMapping(value = "/crear")
 	public String crear(Model model) {
 		

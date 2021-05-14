@@ -161,7 +161,7 @@ xmlns:th="http://www.thymeleaf.org"
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a sec:authorize="hasRole('ROLE_ADMIN')" href="./index2.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Consulta de archivo</p>
                 </a>
@@ -191,7 +191,7 @@ xmlns:th="http://www.thymeleaf.org"
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link">
+                <a th:href="@{/listaDependencia}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Dependencias</p>
                 </a>
@@ -205,7 +205,7 @@ xmlns:th="http://www.thymeleaf.org"
             </ul>
           </li>
           
-          <li class="nav-item">
+          <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
             <a href="#" class="nav-link active bg-danger">
               <i class="nav-icon fas fa-users"></i>
               <p>
