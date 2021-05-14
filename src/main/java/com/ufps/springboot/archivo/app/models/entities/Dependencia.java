@@ -12,13 +12,10 @@ import javax.persistence.Table;
 @Table(name = "dependencias")
 public class Dependencia implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
 	private Long id;
 	private String nombre;
 	private String descripcion;

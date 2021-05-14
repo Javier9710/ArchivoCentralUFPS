@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 
@@ -32,6 +33,11 @@ public class Espacio implements Serializable {
 	private Dependencia dependencia;
 	
 	//------------------------------------------
+	
+	@PrePersist
+	public void estado() {
+	 this.estado=false;
+	}
 	
 	public Espacio() {
 		
