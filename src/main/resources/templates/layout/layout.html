@@ -60,6 +60,8 @@
 				<li class="nav-item d-none d-sm-inline-block"><a href="#"
 					class="nav-link">Contact</a></li>
 			</ul>
+			
+			
 
 			<!-- Right navbar links -->
 			<ul sec:authorize="hasRole('ROLE_ADMIN')" class="navbar-nav ml-auto">
@@ -87,9 +89,11 @@
 					</a>
 
 				</div>
+				
 
 
 			</ul>
+			
 
 			<ul sec:authorize="hasRole('ROLE_USER')" class="navbar-nav ml-auto">
 				<!-- Navbar Search -->
@@ -168,7 +172,7 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="./index.html"
+								<li class="nav-item"><a href="/regArchivo"
 									class="nav-link"> <i class="far fa-circle nav-icon"></i>
 										<p>Registro de archivo</p>
 								</a></li>
@@ -191,7 +195,7 @@
 								</p>
 						</a>
 							<ul class="nav nav-treeview">
-								<li class="nav-item"><a href="/espacios" class="nav-link">
+								<li class="nav-item"><a th:href="@{/espacios}" class="nav-link">
 										<i class="far fa-circle nav-icon"></i>
 										<p>Registro de Estantes</p>
 								</a></li>
@@ -253,11 +257,11 @@
 				<br> <br> <br>
 				<div id="div" th:if="${success != null}" class="alert alert-success"
 					th:text="${success}"></div>
-				<div th:if="${error != null}" class="alert alert-danger"
+				<div id="div" th:if="${error != null}" class="alert alert-danger"
 					th:text="${error}"></div>
-				<div th:if="${warning != null}" class="alert alert-warning"
+				<div id="div" th:if="${warning != null}" class="alert alert-warning"
 					th:text="${warning}"></div>
-				<div th:if="${info != null}" class="alert alert-info"
+				<div id="div" th:if="${info != null}" class="alert alert-info"
 					th:text="${info}"></div>
 				<!-- /.sidebar-menu -->
 			</div>

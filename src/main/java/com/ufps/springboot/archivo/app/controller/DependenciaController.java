@@ -26,7 +26,6 @@ public class DependenciaController {
 	public String listar(Model model) {
 		List<Dependencia> dependencias= dependenciaService.findAll();
 		model.addAttribute("dependencias", dependencias);
-		model.addAttribute("m", "prueba");
 		
 		return "listaDependencia";
 		
@@ -72,18 +71,15 @@ public class DependenciaController {
 		if (id > 0) {
 			dependencia = dependenciaService.findById(id);
 			if (dependencia == null) {
-				System.out.println("error, no existe");
-				flash.addFlashAttribute("error", "El Cliente no Existe en la Base de Datos");
+				flash.addFlashAttribute("error", "La Dependencia no Existe en la Base de Datos");
 				return "redirect:/listaDependencia";
 
 			}
 
 		} else {
-			System.out.println("entra -------");
 			return "redirect:/listaDependencia";
 
 		}
-		System.out.println(dependencia.getId()+" -----------------------------");
 		model.put("dependencia", dependencia);
 
 		return "regDependencia";
