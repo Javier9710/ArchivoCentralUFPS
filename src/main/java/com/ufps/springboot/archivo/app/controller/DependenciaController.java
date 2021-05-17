@@ -44,7 +44,7 @@ public class DependenciaController {
 	@PostMapping(value = "/regDependencia")
 	public String registrar(@Valid Dependencia dependencia, Model model, RedirectAttributes flash) {
 		
-		String mensaje = (dependencia.getId() != null) ? "Cliente Editado con exito" : "Cliente Creado con exito";
+		String mensaje = (dependencia.getId() != null) ? "Dependencia Editada con exito" : "Dependencia Creada con exito";
 		System.out.println("Registr a"+ dependencia.getId());
 		dependenciaService.save(dependencia);
 		flash.addFlashAttribute("success", mensaje);
@@ -54,7 +54,7 @@ public class DependenciaController {
 	}
 	
 	@GetMapping(value = "/eliminar/{id}")
-	public String eliminar(@PathVariable(value = "id") Long id) {
+	public String eliminar(@PathVariable(value = "id") Long id, RedirectAttributes flash) {
 		Dependencia d = dependenciaService.findById(id);
 		if (d==null) {
 			System.out.println("la Dependencia no existe");
@@ -62,6 +62,7 @@ public class DependenciaController {
 			
 		}
 		dependenciaService.delete(id);
+		flash.addFlashAttribute("info", "Dependencia eliminada");
 		return "redirect:/listaDependencia";
 	}
 	
