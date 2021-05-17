@@ -1,6 +1,7 @@
 package com.ufps.springboot.archivo.app.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -31,7 +32,7 @@ public class DependenciaController {
 		
 	}
 	
-	@GetMapping(value = "/crear")
+	@GetMapping(value = "/form")
 	public String crear(Model model) {
 		
 		model.addAttribute("titulo", "Registro de dependencias");
@@ -43,19 +44,12 @@ public class DependenciaController {
 	@PostMapping(value = "/regDependencia")
 	public String registrar(@Valid Dependencia dependencia, Model model, RedirectAttributes flash) {
 		
-		Dependencia d = dependencia;
-		
-		if (d==null) {
-			System.out.println("ocurrio un error");
-			return "otra mierda";
-		}
-		
 		String mensaje = (dependencia.getId() != null) ? "Cliente Editado con exito" : "Cliente Creado con exito";
-		System.out.println("Registra");
+		System.out.println("Registr a"+ dependencia.getId());
 		dependenciaService.save(dependencia);
 		flash.addFlashAttribute("success", mensaje);
 		
-		return "listaDependencia";
+		return "redirect:/listaDependencia";
 		
 	}
 	
@@ -68,7 +62,30 @@ public class DependenciaController {
 			
 		}
 		dependenciaService.delete(id);
-		return "listaDependencia";
+		return "redirect:/listaDependencia";
+	}
+	
+	@GetMapping(value = "/form/{id}")
+	public String editar(@PathVariable(value = "id") Long id, Map<String, Object> model, RedirectAttributes flash) {
+		Dependencia dependencia = null;
+		if (id > 0) {
+			dependencia = dependenciaService.findById(id);
+			if (dependencia == null) {
+				System.out.println("error, no existe");
+				flash.addFlashAttribute("error", "El Cliente no Existe en la Base de Datos");
+				return "redirect:/listaDependencia";
+
+			}
+
+		} else {
+			System.out.println("entra -------");
+			return "redirect:/listaDependencia";
+
+		}
+		System.out.println(dependencia.getId()+" -----------------------------");
+		model.put("dependencia", dependencia);
+
+		return "regDependencia";
 	}
 
 }
