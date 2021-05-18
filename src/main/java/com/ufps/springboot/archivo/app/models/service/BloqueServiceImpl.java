@@ -31,7 +31,7 @@ public class BloqueServiceImpl implements IBloqueService {
 	}
 
 	@Override
-	public Bloque findOne(Long id) {
+	public Bloque findById(Long id) {
 		return bloqueDao.findById(id).orElse(null);
 	}
 

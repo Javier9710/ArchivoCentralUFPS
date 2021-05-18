@@ -8,11 +8,11 @@
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" th:href="@{/plugins/fontawesome-free/css/all.min.css}">
   <!-- Theme style -->
-  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
   
-  <link rel="stylesheet" href="../../dist/css/css.css">
+  <link rel="stylesheet" th:href="@{/dist/css/css.css}">
 </head>
 <body class="row justify-content-center">
   <!-- Content Wrapper. Contains page content -->
@@ -20,9 +20,17 @@
 
     <!-- Content Header (Page header) -->
     <div class="mb-4"></div>
-
+				<div id="div" th:if="${success != null}" class="alert alert-success"
+					th:text="${success}"></div>
+				<div id="div" th:if="${error != null}" class="alert alert-danger"
+					th:text="${error}"></div>
+				<div id="div" th:if="${warning != null}" class="alert alert-warning"
+					th:text="${warning}"></div>
+				<div id="div" th:if="${info != null}" class="alert alert-info"
+					th:text="${info}"></div>
     <!-- Main content -->
     <section class="content">
+    
       <div class="container-fluid mb-2">
         <div class="row">
           <!-- left column -->
@@ -95,17 +103,19 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
+<script th:src="@{/plugins/jquery/jquery.min.js}"></script>
 <!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script th:src="@{/plugins/bootstrap/js/bootstrap.bundle.min.js}"></script>
 <!-- jquery-validation -->
-<script src="../../plugins/jquery-validation/jquery.validate.min.js"></script>
-<script src="../../plugins/jquery-validation/additional-methods.min.js"></script>
+<script th:src="@{/plugins/jquery-validation/jquery.validate.min.js}"></script>
+<script th:src="@{/plugins/jquery-validation/additional-methods.min.js}"></script>
 <!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
+<script th:src="@{/dist/js/adminlte.min.js}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
+<script th:src="@{/dist/js/demo.js}"></script>
 <!-- Page specific script -->
-
+		<script type="text/javascript">
+$('#div').delay(5000).fadeOut('slow');
+</script>
 </body>
 </html>

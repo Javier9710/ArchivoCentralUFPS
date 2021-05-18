@@ -20,23 +20,17 @@ public class LoginController {
 		
 		if (principal!=null) {
 			flash.addFlashAttribute("info","Ya habia una sesion iniciada");
-			System.out.println("yas");
-			System.out.println("mensaje"+principal);
 			return "redirect:/";
-			
 			
 		}
 		if (error!=null) {
-			model.addAttribute("error", "Error en el login, Usuario o contraseña incorectos!");
+			model.addAttribute("warning", "Error en el login, Usuario o contraseña incorectos!");
 		}
 		
 		if (logout != null) {
 			model.addAttribute("success", "Ha Cerrado Sesion con exito");
 			
 		}
-		
-		
-		
 		
 		return "login";
 		

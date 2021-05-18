@@ -12,7 +12,7 @@ public interface IBloqueService {
 	
 	public List<Bloque> findAll();
 	
-	public Bloque findOne(Long id);
+	public Bloque findById(Long id);
 	
 	
 

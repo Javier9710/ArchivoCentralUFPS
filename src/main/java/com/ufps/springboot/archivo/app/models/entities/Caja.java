@@ -1,8 +1,11 @@
 package com.ufps.springboot.archivo.app.models.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -13,15 +16,11 @@ import javax.persistence.Table;
 @Table(name = "cajas")
 public class Caja implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	private Long id;
-	private String codigo;
-	private String version;
 	private String dependencia;
 	private String codigo1;
 	private String serie;
@@ -30,7 +29,8 @@ public class Caja implements Serializable {
 	private String codigo3;
 	private String Ncaja;
 	private String Nlegajos;
-	private String rangoFecha;
+	private Date fechaDesde;
+	private Date fechaHasta;
 	private String retencion;
 	private String observaciones;
 	private int expediente;
@@ -48,11 +48,9 @@ public class Caja implements Serializable {
 
 
 	public Caja(Long id, String codigo, String version, String dependencia, String codigo1, String serie,
-			String codigo2, String subserie, String codigo3, String ncaja, String nlegajos, String rangoFecha,
+			String codigo2, String subserie, String codigo3, String ncaja, String nlegajos, Date fechaDesde, Date fechaHasta,
 			String retencion, String observaciones,int expediente, String tipoCaja, Espacio espacio) {
 		this.id = id;
-		this.codigo = codigo;
-		this.version = version;
 		this.dependencia = dependencia;
 		this.codigo1 = codigo1;
 		this.serie = serie;
@@ -61,7 +59,8 @@ public class Caja implements Serializable {
 		this.codigo3 = codigo3;
 		this.Ncaja = ncaja;
 		this.Nlegajos = nlegajos;
-		this.rangoFecha = rangoFecha;
+		this.fechaDesde = fechaDesde;
+		this.fechaHasta = fechaHasta;
 		this.retencion = retencion;
 		this.observaciones = observaciones;
 		this.expediente = expediente;
@@ -79,25 +78,6 @@ public class Caja implements Serializable {
 		this.id = id;
 	}
 
-
-	public String getCodigo() {
-		return codigo;
-	}
-
-
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
-
-
-	public String getVersion() {
-		return version;
-	}
-
-
-	public void setVersion(String version) {
-		this.version = version;
-	}
 
 
 	public String getDependencia() {
@@ -179,14 +159,23 @@ public class Caja implements Serializable {
 		Nlegajos = nlegajos;
 	}
 
-
-	public String getRangoFecha() {
-		return rangoFecha;
+	public Date getFechaDesde() {
+		return fechaDesde;
 	}
 
 
-	public void setRangoFecha(String rangoFecha) {
-		this.rangoFecha = rangoFecha;
+	public void setFechaDesde(Date fechaDesde) {
+		this.fechaDesde = fechaDesde;
+	}
+
+
+	public Date getFechaHasta() {
+		return fechaHasta;
+	}
+
+
+	public void setFechaHasta(Date fechaHasta) {
+		this.fechaHasta = fechaHasta;
 	}
 
 

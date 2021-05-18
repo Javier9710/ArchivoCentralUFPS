@@ -48,21 +48,28 @@ public class AdminController {
 	}
 
 	@PostMapping(value = "/espacios")
-	public String registrarBloque(@Valid Bloque bloque, BindingResult result, Model model) {		
+	public String registrarBloque(@Valid Bloque bloque, BindingResult result, Model model, RedirectAttributes flash) {		
 		Bloque x = bloqueService.findByLetra(bloque.getLetra());
 		if (x != null) {
-			return "espacios";
+			flash.addFlashAttribute("warning", "El bloque ya existe");
+			return "redirect:/espacios";
 		}
 
 		bloqueService.save(bloque);
-		model.addAttribute("titulo", "se registro");
-
-		return "redirect:espacios";
+		flash.addFlashAttribute("success", "Bloque Registrado");
+		return "redirect:/espacios";
 	}
 
 	@PostMapping(value = "/estantes")
-	public String registrarEstantes(@RequestParam(value = "bloque2") Long id, @Valid Estante estante, BindingResult result, Model model) {
-		Bloque x = bloqueService.findOne(id);
+	public String registrarEstantes(@RequestParam(value = "bloque2") Long id, @Valid Estante estante, BindingResult result, Model model, RedirectAttributes flash) {
+		Bloque x = bloqueService.findById(id);
+		Estante e = estanteService.findByNumero(estante.getNumero());
+		if (e!=null) {
+			flash.addFlashAttribute("warning", "El Estante numero: "+estante.getNumero()+" Ya existe!");
+			return "redirect:/espacios";
+			
+		}
+		flash.addFlashAttribute("success", "Estante Registrado con exito");
 		estante.setBloque(x);
 		estanteService.save(estante);
 		estanteService.generar(estante);

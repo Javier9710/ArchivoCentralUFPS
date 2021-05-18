@@ -15,8 +15,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-
-
 import com.ufps.springboot.archivo.app.models.dao.IUsuarioDao;
 import com.ufps.springboot.archivo.app.models.entities.Rol;
 import com.ufps.springboot.archivo.app.models.entities.Usuario;
@@ -38,11 +36,12 @@ public class JpaUserDetailsService implements UserDetailsService{
 				logger.error("Error login: No existe el usuario '"+username+"'");
 				throw new UsernameNotFoundException("Username  "+ username+" No Existe");
 			}
-			
+
 			List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 			
 			for (Rol rol : usuario.getRoles()) {
 				logger.info("Rol: ".concat(rol.getAuthority()));
+				
 				authorities.add(new SimpleGrantedAuthority(rol.getAuthority()));
 				
 				

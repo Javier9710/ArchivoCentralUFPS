@@ -1,5 +1,7 @@
 package com.ufps.springboot.archivo.app.models.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -63,6 +65,24 @@ public class EstanteServiceImpl implements IEstanteService {
 	public void saveEspacio(Espacio espacio) {
 		espacioDao.save(espacio);
 	}
+
+	@Override
+	public List<Estante> findAll() {
+		return (List<Estante>) EstanteDao.findAll();
+	}
+
+	@Override
+	public Estante findByNumero(String numero) {
+		return EstanteDao.findByNumero(numero);
+	}
+
+	@Override
+	public Estante findById(Long Id) {
+		return EstanteDao.findById(Id).orElse(null);
+	}
+
+	
+	
 	
 	
 
