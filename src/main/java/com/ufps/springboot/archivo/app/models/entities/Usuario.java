@@ -12,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 @Entity
@@ -38,6 +39,11 @@ public class Usuario implements Serializable {
 	private List<Rol> roles;
 
 	//-----------------------------------------------------------
+	
+	@PrePersist
+	public void estado() {
+		enable=true;
+	}
 	
 	public Long getId() {
 		return id;

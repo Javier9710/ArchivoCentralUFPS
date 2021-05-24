@@ -16,8 +16,11 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ufps.springboot.archivo.app.models.entities.Bloque;
 import com.ufps.springboot.archivo.app.models.entities.Estante;
+import com.ufps.springboot.archivo.app.models.entities.Rol;
+import com.ufps.springboot.archivo.app.models.entities.Usuario;
 import com.ufps.springboot.archivo.app.models.service.BloqueServiceImpl;
 import com.ufps.springboot.archivo.app.models.service.EstanteServiceImpl;
+import com.ufps.springboot.archivo.app.models.service.UsuarioServiceImpl;
 
 @Controller
 public class AdminController {
@@ -27,6 +30,9 @@ public class AdminController {
 	
 	@Autowired
 	private EstanteServiceImpl estanteService;
+	
+	@Autowired
+	private UsuarioServiceImpl usuarioService;
 
 	
 	@Secured(value = { "ROLE_ADMIN", "ROLE_USER" })
@@ -75,6 +81,14 @@ public class AdminController {
 		estanteService.generar(estante);
 		
 		return "redirect:espacios";
+	}
+	
+	@GetMapping(value = "/usuario")
+	public String crearUsuario(Model model) {
+		List<Rol> roles =usuarioService.findAllRol();
+		model.addAttribute("usuario",new Usuario());
+		model.addAttribute("roles", roles);
+		return "regUsuario";
 	}
 
 }

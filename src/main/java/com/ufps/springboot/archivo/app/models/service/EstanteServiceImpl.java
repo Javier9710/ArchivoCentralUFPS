@@ -49,7 +49,6 @@ public class EstanteServiceImpl implements IEstanteService {
 					Espacio espacio = new Espacio(); 
 					espacio.setEstado(null);
 					espacio.setPosicion(posicion);
-					espacio.setDependencia(null);
 					this.saveEspacio(espacio);
 					
 					

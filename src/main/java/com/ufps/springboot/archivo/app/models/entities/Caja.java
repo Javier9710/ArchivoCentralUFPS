@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -38,6 +39,9 @@ public class Caja implements Serializable {
 	@OneToOne
 	@JoinColumn(name = "espacio")
 	private Espacio espacio;
+	@ManyToOne
+	@JoinColumn(name = "dependenciaObject")
+	private Dependencia dependenciaObject;
 	
 	//--------------------------------------------------
 	
@@ -46,10 +50,18 @@ public class Caja implements Serializable {
 		
 	}
 
+	public Dependencia getDependenciaObject() {
+		return dependenciaObject;
+	}
 
-	public Caja(Long id, String codigo, String version, String dependencia, String codigo1, String serie,
-			String codigo2, String subserie, String codigo3, String ncaja, String nlegajos, Date fechaDesde, Date fechaHasta,
-			String retencion, String observaciones,int expediente, String tipoCaja, Espacio espacio) {
+	public void setDependenciaObject(Dependencia dependenciaObject) {
+		this.dependenciaObject = dependenciaObject;
+	}
+
+	public Caja(Long id, String dependencia, String codigo1, String serie, String codigo2, String subserie,
+			String codigo3, String ncaja, String nlegajos, Date fechaDesde, Date fechaHasta, String retencion,
+			String observaciones, int expediente, String tipoCaja, Espacio espacio, Dependencia dependenciaObject) {
+		super();
 		this.id = id;
 		this.dependencia = dependencia;
 		this.codigo1 = codigo1;
@@ -57,16 +69,20 @@ public class Caja implements Serializable {
 		this.codigo2 = codigo2;
 		this.subserie = subserie;
 		this.codigo3 = codigo3;
-		this.Ncaja = ncaja;
-		this.Nlegajos = nlegajos;
+		Ncaja = ncaja;
+		Nlegajos = nlegajos;
 		this.fechaDesde = fechaDesde;
 		this.fechaHasta = fechaHasta;
 		this.retencion = retencion;
 		this.observaciones = observaciones;
 		this.expediente = expediente;
-		this.tipoCaja= tipoCaja;
+		this.tipoCaja = tipoCaja;
 		this.espacio = espacio;
+		this.dependenciaObject = dependenciaObject;
 	}
+
+
+
 
 
 	public Long getId() {

@@ -28,9 +28,7 @@ public class Espacio implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "posicion")
 	private Posicion posicion;
-	@ManyToOne
-	@JoinColumn(name = "dependencia")
-	private Dependencia dependencia;
+
 	
 	//------------------------------------------
 	
@@ -44,11 +42,11 @@ public class Espacio implements Serializable {
 	}
 
 
-	public Espacio(Long id, Boolean estado, Posicion posicion, Dependencia dependencia) {
+	public Espacio(Long id, Boolean estado, Posicion posicion) {
 		this.id = id;
 		this.estado = estado;
 		this.posicion = posicion;
-		this.dependencia = dependencia;
+		
 	}
 
 
@@ -81,15 +79,7 @@ public class Espacio implements Serializable {
 	}
 
 
-	public Dependencia getDependencia() {
-		return dependencia;
-	}
 
-
-	public void setDependencia(Dependencia dependencia) {
-		this.dependencia = dependencia;
-	}
-	
 	
 	
 	
