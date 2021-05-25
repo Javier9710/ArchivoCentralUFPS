@@ -96,8 +96,9 @@ public class AdminController {
 	}
 	
 	@PostMapping(value = "/regUsuario")
-	public String regUsuario(@Valid Usuario usuario, @RequestParam(value = "roles") int rol, @RequestParam(value = "password2") String pass, Model model) {
+	public String regUsuario(@Valid Usuario usuario, @RequestParam(value = "roles") int rol, @RequestParam(value = "password2") String pass, Model model, RedirectAttributes flash) {
 	
+		if(usuario.getPassword().equals(pass)) {
 		
 		if (rol==1) {
 			Rol roles = new Rol();
@@ -107,16 +108,24 @@ public class AdminController {
 			usuario.setPassword(bcryptPassword);
 			usuarioService.save(usuario);
 			usuarioService.saveRol(roles);
+			flash.addFlashAttribute("success", "Usuario "+usuario.getUsername()+" Registrado - ROL:ADMIN");
 			return "redirect:/usuario";
 		}else {
-			Rol roles1 = new Rol();
+			Rol roles = new Rol();
 			String bcryptPassword = passwordEncoder.encode(usuario.getPassword());
-			roles1.setAuthority("ROLE_USER");
-			roles1.setUsuario(usuario);
+			roles.setAuthority("ROLE_USER");
+			roles.setUsuario(usuario);
 			usuario.setPassword(bcryptPassword);
 			usuarioService.save(usuario);
-			usuarioService.saveRol(roles1);
+			usuarioService.saveRol(roles);
+			flash.addFlashAttribute("success", "Usuario "+usuario.getUsername()+" Registrado - ROL:USER");
 			return "redirect:/usuario";
+		}
+		}else {
+			
+			flash.addFlashAttribute("error", "Las Contraseñas no coinciden");
+			return "redirect:/usuario";
+			
 		}
 		
 	
