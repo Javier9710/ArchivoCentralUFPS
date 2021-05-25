@@ -6,6 +6,7 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -33,6 +34,9 @@ public class AdminController {
 	
 	@Autowired
 	private UsuarioServiceImpl usuarioService;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
 
 	
@@ -97,15 +101,19 @@ public class AdminController {
 		
 		if (rol==1) {
 			Rol roles = new Rol();
+			String bcryptPassword = passwordEncoder.encode(usuario.getPassword());
 			roles.setAuthority("ROLE_ADMIN");
 			roles.setUsuario(usuario);
+			usuario.setPassword(bcryptPassword);
 			usuarioService.save(usuario);
 			usuarioService.saveRol(roles);
 			return "redirect:/usuario";
 		}else {
 			Rol roles1 = new Rol();
+			String bcryptPassword = passwordEncoder.encode(usuario.getPassword());
 			roles1.setAuthority("ROLE_USER");
 			roles1.setUsuario(usuario);
+			usuario.setPassword(bcryptPassword);
 			usuarioService.save(usuario);
 			usuarioService.saveRol(roles1);
 			return "redirect:/usuario";
