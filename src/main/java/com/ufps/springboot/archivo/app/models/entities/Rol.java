@@ -2,15 +2,19 @@ package com.ufps.springboot.archivo.app.models.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
-@Table(name = "authorities", uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id","authority"})})
+@Table(name = "authorities", uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario","authority"})})
 public class Rol implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -19,9 +23,28 @@ public class Rol implements Serializable {
 	private Long id;
 
 	private String authority;
+	
+	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "usuario")
+	private Usuario usuario;
 
 	//---------------------------------------------------
 	
+	
+	public Rol() {
+		
+	}
+
+	
+	public Rol(Long id, String authority) {
+		super();
+		this.id = id;
+		this.authority = authority;
+	}
+
+
+
+
 	public Long getId() {
 		return id;
 	}
@@ -41,6 +64,18 @@ public class Rol implements Serializable {
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+	
+	
 
 }
 

@@ -15,7 +15,9 @@ public interface IUsuarioService {
 	
 	public void delete(Long id);
 	
-	public List<Rol> findAllRol();
+	public List<Rol> findRolById(Long id);
+	
+	public void saveRol(Rol rol);
 
 
 }

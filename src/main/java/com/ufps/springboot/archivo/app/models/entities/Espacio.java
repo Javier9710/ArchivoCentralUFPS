@@ -16,13 +16,11 @@ import javax.persistence.Table;
 @Table(name = "espacios")
 public class Espacio implements Serializable {
 	
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
-	@Id
+	
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
 	private Long id;
 	private Boolean estado;
 	@ManyToOne

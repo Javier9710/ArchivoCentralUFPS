@@ -10,7 +10,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
@@ -27,22 +26,21 @@ public class Usuario implements Serializable {
 	
 	@Column(name = "username",unique = true, length = 30)
 	private String username;
-	@Column(name = "password",unique = true, length = 60)
+	@Column(name = "password", length = 60)
 	private String password;
 	
 	private String nombre;
 	
 	private Boolean enable;
 	
-	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id")
+	@OneToMany(mappedBy = "usuario",  fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<Rol> roles;
 
 	//-----------------------------------------------------------
 	
 	@PrePersist
 	public void estado() {
-		enable=true;
+		this.enable=true; 
 	}
 	
 	public Long getId() {

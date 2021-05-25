@@ -34,6 +34,7 @@ public class AdminController {
 	@Autowired
 	private UsuarioServiceImpl usuarioService;
 
+
 	
 	@Secured(value = { "ROLE_ADMIN", "ROLE_USER" })
 	@GetMapping(value = { "/index", "/" })
@@ -85,10 +86,32 @@ public class AdminController {
 	
 	@GetMapping(value = "/usuario")
 	public String crearUsuario(Model model) {
-		List<Rol> roles =usuarioService.findAllRol();
 		model.addAttribute("usuario",new Usuario());
-		model.addAttribute("roles", roles);
+		model.addAttribute("rol",new Rol());
 		return "regUsuario";
+	}
+	
+	@PostMapping(value = "/regUsuario")
+	public String regUsuario(@Valid Usuario usuario, @RequestParam(value = "roles") int rol, @RequestParam(value = "password2") String pass, Model model) {
+	
+		
+		if (rol==1) {
+			Rol roles = new Rol();
+			roles.setAuthority("ROLE_ADMIN");
+			roles.setUsuario(usuario);
+			usuarioService.save(usuario);
+			usuarioService.saveRol(roles);
+			return "redirect:/usuario";
+		}else {
+			Rol roles1 = new Rol();
+			roles1.setAuthority("ROLE_USER");
+			roles1.setUsuario(usuario);
+			usuarioService.save(usuario);
+			usuarioService.saveRol(roles1);
+			return "redirect:/usuario";
+		}
+		
+	
 	}
 
 }
