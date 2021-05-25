@@ -63,11 +63,11 @@
 											<td th:text="${users.nombre}"></td>
 											<td th:text="${users.username}"></td>
 											<td th:text="${users.getRoles().get(0).authority}"></td>
-											<td th:text="${users.enable}"></td>
+											<td th:text="${users.enable==true} ? 'Habilitado' : 'Deshailitado'"></td>
 											<td><a class="btn btn-primary"
 												th:href="@{/usuario/} + ${users.id}">Editar</a></td>
 											<td><a class="btn btn-danger"
-												th:href="@{/eliminar/} + ${users.id}"
+												th:href="@{/eliminarUser/} + ${users.id}"
 												onclick="return confirm('Estas seguro ?')">Eliminar</a></td>
 										</tr>
 

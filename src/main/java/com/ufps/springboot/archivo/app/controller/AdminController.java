@@ -170,5 +170,19 @@ public class AdminController {
 		return "regUsuario";
 		
 	}
+	
+	@GetMapping(value = "/eliminarUser/{id}")
+	public String eliminar(@PathVariable(value = "id") Long id, Model model, RedirectAttributes flash) {
+		Usuario u = usuarioService.findById(id);
+		if (u==null) {
+			flash.addFlashAttribute("warning", "El Usuario no existe en la Base de Datos");
+			return "redirect:/listaUsuario";
+			
+		}
+		flash.addFlashAttribute("success", "Usuario "+ u.getUsername()+" eliminado con exito");
+		usuarioService.delete(id);
+		return "redirect:/listaUsuario";
+		
+	}
 
 }
