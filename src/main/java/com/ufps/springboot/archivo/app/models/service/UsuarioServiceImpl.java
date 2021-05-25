@@ -40,14 +40,27 @@ public class UsuarioServiceImpl implements IUsuarioService {
 	@Override
 	public void saveRol(Rol rol) {
 		rolDao.save(rol);
-		
+	}
+
+	
+
+	@Override
+	public Usuario findById(Long id) {
+		return usuarioDao.findById(id).orElse(null);
 	}
 
 	@Override
-	public List<Rol> findRolById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Rol> findallRol() {
+		return (List<Rol>)rolDao.findAll();
 	}
+
+	@Override
+	public Rol findRolById(Long username) {
+		
+		return rolDao.findRolById(username);
+	}
+
+	
 
 	
 }

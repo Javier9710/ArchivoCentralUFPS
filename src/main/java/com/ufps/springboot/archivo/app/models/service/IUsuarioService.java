@@ -15,9 +15,15 @@ public interface IUsuarioService {
 	
 	public void delete(Long id);
 	
-	public List<Rol> findRolById(Long id);
+	public Usuario findById(Long id);
+	
+	//---------------------------------
+	
+	public List<Rol> findallRol();
 	
 	public void saveRol(Rol rol);
+	
+	public Rol findRolById(Long username);
 
 
 }

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -91,15 +92,17 @@ public class AdminController {
 	@GetMapping(value = "/usuario")
 	public String crearUsuario(Model model) {
 		model.addAttribute("usuario",new Usuario());
-		model.addAttribute("rol",new Rol());
+		//model.addAttribute("rol",new Rol());
 		return "regUsuario";
 	}
 	
 	@PostMapping(value = "/regUsuario")
 	public String regUsuario(@Valid Usuario usuario, @RequestParam(value = "roles") int rol, @RequestParam(value = "password2") String pass, Model model, RedirectAttributes flash) {
-	
+
+		Rol rolEdit = usuarioService.findRolById(usuario.getId());
+
 		if(usuario.getPassword().equals(pass)) {
-		
+			usuario.setEnable(true);
 		if (rol==1) {
 			Rol roles = new Rol();
 			String bcryptPassword = passwordEncoder.encode(usuario.getPassword());
@@ -107,9 +110,17 @@ public class AdminController {
 			roles.setUsuario(usuario);
 			usuario.setPassword(bcryptPassword);
 			usuarioService.save(usuario);
+			if (rolEdit!=null) {
+				rolEdit.setAuthority("ROLE_ADMIN");
+				usuarioService.saveRol(rolEdit);
+				return "redirect:/listaUsuario";
+				
+			}
 			usuarioService.saveRol(roles);
+		
 			flash.addFlashAttribute("success", "Usuario "+usuario.getUsername()+" Registrado - ROL:ADMIN");
-			return "redirect:/usuario";
+			return "redirect:/listaUsuario";
+			
 		}else {
 			Rol roles = new Rol();
 			String bcryptPassword = passwordEncoder.encode(usuario.getPassword());
@@ -117,9 +128,16 @@ public class AdminController {
 			roles.setUsuario(usuario);
 			usuario.setPassword(bcryptPassword);
 			usuarioService.save(usuario);
+			if (rolEdit!=null) {
+				rolEdit.setAuthority("ROLE_USER");
+				usuarioService.saveRol(rolEdit);
+				return "redirect:/listaUsuario";
+				
+			}
 			usuarioService.saveRol(roles);
+			
 			flash.addFlashAttribute("success", "Usuario "+usuario.getUsername()+" Registrado - ROL:USER");
-			return "redirect:/usuario";
+			return "redirect:/listaUsuario";
 		}
 		}else {
 			
@@ -129,6 +147,28 @@ public class AdminController {
 		}
 		
 	
+	}
+	
+	@GetMapping(value = "/listaUsuario")
+	public String listarUsuarios(Model model) {
+		List<Usuario> usuarios = usuarioService.findAll();
+		model.addAttribute("usuarios", usuarios);
+		System.out.println("prueba ------ Roles"+ usuarios.get(0).getRoles());
+		
+		return "listaUsuario";
+	}
+	
+	@GetMapping(value = "/usuario/{id}")
+	public String editar(@PathVariable(value = "id") Long id, Model model, RedirectAttributes flash) {
+		Usuario u = usuarioService.findById(id);
+		if (u==null) {
+			flash.addFlashAttribute("warning", "El Usuario no existe en la Base de Datos");
+			return "redirect:/listaUsuario";
+			
+		}
+		model.addAttribute("usuario", u);
+		return "regUsuario";
+		
 	}
 
 }
