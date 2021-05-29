@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import com.ufps.springboot.archivo.app.models.entities.Espacio;
 import com.ufps.springboot.archivo.app.models.entities.Estante;
 import com.ufps.springboot.archivo.app.models.service.EstanteServiceImpl;
 
@@ -27,8 +28,8 @@ public class archivoController {
 	@GetMapping(value = "/verEstante/{id}")
 	public String ver(@PathVariable Long id, Model model) {
 		Estante e =  estanteService.findById(id);
-		List<Estante> estantes = estanteService.findAll();
-		model.addAttribute("estantes", estantes);
+		List<Espacio> espacios = estanteService.listaEspacios(id);
+		model.addAttribute("espacios", espacios);
 		model.addAttribute("estante", e);
 		return "verEstante";
 		

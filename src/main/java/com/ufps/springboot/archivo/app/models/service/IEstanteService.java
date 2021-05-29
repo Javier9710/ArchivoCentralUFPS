@@ -17,11 +17,19 @@ public interface IEstanteService {
 	
 	public List<Estante> findAll();
 	
+	public Estante findByNumero(String numero);
+	
+	//----------------------------------------------------
+	
 	public void savePosicion(Posicion posicion);
+	
+	//----------------------------------------------------
 	
 	public void saveEspacio(Espacio espacio);
 	
-	public Estante findByNumero(String numero);
+	public List<Espacio> listaEspacios(Long id);
+	
+	
 	
 	
 

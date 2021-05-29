@@ -7,70 +7,180 @@
 
 	<div class="wrapper" th:replace="layout/layout :: BasePage"></div>
 
-	
-	  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Estante a Insertar</h1>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
 
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Seleccione Estante a insertar archivo</h3>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example2" class="table table-bordered table-hover">
-                  <thead>
-                  <tr th:each="esta : ${estantes}">
-                    
-                   <th th:if="${esta.filas>0}" th:text="${esta.filas}"></th>
-                    
-                  </tr>
-         
-                  </thead>
-                  <tbody>
-                  
-                  <tr th:each="est : ${estantes}">
-                    <td th:text="${est.bloque.letra}"></td>
-                    <td th:text="${est.bloque.ubicacion}"></td>
-                    <td th:text="${est.numero}"></td>
-                    <td><a class="btn btn-primary btn" th:href="@{/verEstante/} + ${est.id}" th:text="Insertar"></a></td>
+	<div class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1>Estante a Insertar</h1>
+					</div>
+				</div>
+			</div>
+			<!-- /.container-fluid -->
+		</section>
 
-                  </tr>
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Bloque</th>
-                    <th>Ubicacion</th>
-                    <th>N� Estante</th>
-                    <th>Accion</th>
-                  </tr>
-                  </tfoot>
-                </table>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            </div>
-            </div>
-            </div>
-            </section>
-            </div>
-	
-	
-	
-	
+		<!-- Main content -->
+		<section class="content">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-12">
+						<div class="card">
+							<div class="card-header">
+								<h3 class="card-title">Seleccione Estante a insertar
+									archivo</h3>
+							</div>
+							<!-- /.card-header -->
+							<div class="card-body">
+
+
+								<div
+									style="padding: 10px; float: left; width: 45%; text-align: justify">
+									<div class="card-header" >
+										<h3><center >Columna Nº 1</center></h3>
+										
+									</div>
+									<div>
+										<table class="table table-bordered table-striped table-right">
+											<tr>
+												<th th:each="esta : ${espacios}"
+													th:if="${esta.posicion.columna==1 and esta.posicion.fila==1}">
+													<a th:if="${esta.estado==false}" class="btn btn-success btn"
+													th:href="@{/verEstante/} + ${esta.id}" th:text="${esta.estado==false} ? 'Desocupado'"></a>
+													<a th:if="${esta.estado==true}" class="btn btn-danger btn"
+													th:href="@{/verEstante/} + ${esta.id}" th:text="${esta.estado==true} ? 'Ocupado'"></a>
+												</th>
+												
+											</tr>
+										</table>
+									</div>
+									<div>
+										<table class="table table-bordered table-striped table-right">
+											<tr>
+												<th th:each="esta : ${espacios}"
+													th:if="${esta.posicion.columna==1 and esta.posicion.fila==2 }">
+													<a class="btn btn-primary btn"
+													th:href="@{/verEstante/} + ${esta.id}" th:text="${esta.id}"></a>
+												</th>
+											</tr>
+										</table>
+									</div>
+									<div>
+										<table class="table table-bordered table-striped table-right">
+											<tr>
+												<th th:each="esta : ${espacios}"
+													th:if="${esta.posicion.columna==1 and esta.posicion.fila==3 }">
+													<a class="btn btn-primary btn"
+													th:href="@{/verEstante/} + ${esta.id}" th:text="${esta.id}"></a>
+												</th>
+											</tr>
+										</table>
+									</div>
+									<div>
+										<table class="table table-bordered table-striped table-right">
+											<tr>
+												<th th:each="esta : ${espacios}"
+													th:if="${esta.posicion.columna==1 and esta.posicion.fila==4 }">
+													<a class="btn btn-primary btn"
+													th:href="@{/verEstante/} + ${esta.id}" th:text="${esta.id}"></a>
+												</th>
+											</tr>
+										</table>
+									</div>
+									<div>
+										<table class="table table-bordered table-striped table-right">
+											<tr>
+												<th th:each="esta : ${espacios}"
+													th:if="${esta.posicion.columna==1 and esta.posicion.fila==5 }">
+													<a class="btn btn-primary btn"
+													th:href="@{/verEstante/} + ${esta.id}" th:text="${esta.id}"></a>
+												</th>
+											</tr>
+										</table>
+									</div>
+								</div>
+								
+
+								<!-- -------------------------------------------------------------------------------------------- -->
+
+								<div
+									style="padding: 10px; float: right; width: 45%; text-align: justify">
+									<div class="card-header" >
+										<h3><center >Columna Nº 2</center></h3>
+										
+									</div>
+									<div>
+										<table class="table table-bordered table-striped table-right">
+											<tr>
+												<th th:each="esta : ${espacios}"
+													th:if="${esta.posicion.columna==2 and esta.posicion.fila==1 }">
+													<a class="btn btn-primary btn"
+													th:href="@{/verEstante/} + ${esta.id}" th:text="${esta.id}"></a>
+												</th>
+											</tr>
+										</table>
+									</div>
+									<div>
+										<table class="table table-bordered table-striped table-right">
+											<tr>
+												<th th:each="esta : ${espacios}"
+													th:if="${esta.posicion.columna==2 and esta.posicion.fila==2 }">
+													<a class="btn btn-primary btn"
+													th:href="@{/verEstante/} + ${esta.id}" th:text="${esta.id}"></a>
+												</th>
+											</tr>
+										</table>
+									</div>
+									<div>
+										<table class="table table-bordered table-striped table-right">
+											<tr>
+												<th th:each="esta : ${espacios}"
+													th:if="${esta.posicion.columna==2 and esta.posicion.fila==3 }">
+													<a class="btn btn-primary btn"
+													th:href="@{/verEstante/} + ${esta.id}" th:text="${esta.id}"></a>
+												</th>
+											</tr>
+										</table>
+									</div>
+									<div>
+										<table class="table table-bordered table-striped table-right">
+											<tr>
+												<th th:each="esta : ${espacios}"
+													th:if="${esta.posicion.columna==2 and esta.posicion.fila==4 }">
+													<a class="btn btn-primary btn"
+													th:href="@{/verEstante/} + ${esta.id}" th:text="${esta.id}"></a>
+												</th>
+											</tr>
+										</table>
+									</div>
+									<div>
+										<table class="table table-bordered table-striped table-right">
+											<tr>
+												<th th:each="esta : ${espacios}"
+													th:if="${esta.posicion.columna==2 and esta.posicion.fila==5 }">
+													<a class="btn btn-primary btn"
+													th:href="@{/verEstante/} + ${esta.id}" th:text="${esta.id}"></a>
+												</th>
+											</tr>
+										</table>
+									</div>
+								</div>
+
+
+
+							</div>
+							<!-- /.card-body -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+
+
+
+
 
 </body>
 <footer th:replace="layout/layout :: Footer"></footer>
