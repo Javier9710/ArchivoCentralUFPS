@@ -52,9 +52,12 @@ public class AdminController {
 	public String crearBloque(Model model, RedirectAttributes flash) {
 		List<Bloque> bloques = bloqueService.findAll();
 		model.addAttribute("lista", bloques);
+		Estante e = new Estante();
+		e.setColumnas(2);
+		e.setFilas(5);
 
 		model.addAttribute("bloque",new Bloque());
-		model.addAttribute("estante",new Estante());
+		model.addAttribute("estante", e);
 
 		return "espacios";
 	}

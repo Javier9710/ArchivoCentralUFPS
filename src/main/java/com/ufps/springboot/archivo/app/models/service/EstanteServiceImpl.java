@@ -85,6 +85,12 @@ public class EstanteServiceImpl implements IEstanteService {
 		return (List<Espacio>) espacioDao.listEspacio(id);
 	}
 
+	@Override
+	public Espacio findEspacio(Long id) {
+	
+		return espacioDao.findById(id).orElse(null);
+	}
+
 	
 	
 	

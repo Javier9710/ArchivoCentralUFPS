@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thylemeaf.org/extras/spring-security">
+
+<head th:replace="layout/layout :: Head">
+<body class="hold-transition sidebar-mini layout-fixed">
+
+	<div class="wrapper" th:replace="layout/layout :: BasePage"></div>
+
+	<div class="content-wrapper">
+		<!-- Content Header (Page header) -->
+		<section class="content-header">
+			<div class="container-fluid">
+				<div class="row mb-2">
+					<div class="col-sm-6">
+						<h1>Formulario de Caja</h1>
+					</div>
+					<div class="col-sm-6">
+						<ol class="breadcrumb float-sm-right">
+							<li class="breadcrumb-item"><a href="#">Home</a></li>
+							<li class="breadcrumb-item active">General Form</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+			<!-- /.container-fluid -->
+		</section>
+
+		<section class="content">
+			<div class="container-fluid">
+				<div class="row vh-100 m-0 justify-content-center">
+					<!-- left column -->
+					<div class="col-md-12">
+						<!-- general form elements -->
+						<div class="card card-warning">
+							<div class="card-header">
+								<center>
+									<h3 class="">Registro de Caja</h3>
+								</center>
+							</div>
+							<!-- /.card-header -->
+							
+								<form>
+								<div class="card-body">
+									<div class="row">
+										<div class="col-sm-6">
+											<!-- text input -->
+											<div class="form-group">
+												<label>Dependencia:</label> <input type="text"
+													class="form-control" placeholder="Enter ...">
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label>Codigo:</label> <input type="text"
+													class="form-control" placeholder="Enter ...">
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-6">
+											<!-- text input -->
+											<div class="form-group">
+												<label>Serie:</label> <input type="text"
+													class="form-control" placeholder="Enter ...">
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label>Codigo:</label> <input type="text"
+													class="form-control" placeholder="Enter ..." >
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-6">
+											<!-- text input -->
+											<div class="form-group">
+												<label>SubSerie:</label> <input type="text"
+													class="form-control" placeholder="Enter ...">
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label>Codigo:</label> <input type="text"
+													class="form-control" placeholder="Enter ..." >
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-6">
+											<!-- text input -->
+											<div class="form-group">
+												<label>Caja Nº:</label> <input type="text"
+													class="form-control" placeholder="Enter ...">
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label>Nº Legajos:</label> <input type="text"
+													class="form-control" placeholder="Enter ..." >
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-6">
+											<!-- text input -->
+											<div class="form-group">
+
+												<div class="nativeDatePicker">
+													<label for="bday">Fechas Extremas - Desde:</label> <input
+														class="form-control" type="date" id="bday" name="bday">
+													<span class="validity"></span>
+												</div>
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<div class="nativeDatePicker">
+													<label for="bday">Fechas Extremas - Hasta:</label> <input
+														class="form-control" type="date" id="bday" name="bday">
+													<span class="validity"></span>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-10">
+											<!-- text input -->
+											<div class="form-group">
+												<label>Retencion:</label> <input type="text"
+													class="form-control" placeholder="Enter ...">
+											</div>
+
+											<div class="form-group">
+												<label>Observaciones:</label>
+												<textarea class="form-control" rows="3"
+													placeholder="Enter ..."></textarea>
+											</div>
+										</div>
+									</div>
+									</div>
+
+									<div class="card-footer">
+										<input type="submit" class="btn btn-primary" value="Registar">
+									</div>
+
+									<!-- input states -->
+
+								</form>
+							
+							<!-- /.card-body -->
+						</div>
+					</div>
+					
+				</div>
+				
+			</div>
+			
+
+		</section>
+
+	</div>
+	
+
+
+
+
+	<footer th:replace="layout/layout :: Footer"></footer>
+	<!-- ./wrapper -->
+	<div th:replace="layout/layout :: Scripts"></div>
+</body>
+
+</html>

@@ -29,6 +29,8 @@ public interface IEstanteService {
 	
 	public List<Espacio> listaEspacios(Long id);
 	
+	public Espacio findEspacio(Long id);
+	
 	
 	
 	
