@@ -28,8 +28,8 @@
 					<div class="col-12">
 						<div class="card">
 							<div class="card-header">
-								<h3 class="card-title">Seleccione Estante a insertar
-									archivo</h3>
+								<h3 class="card-title">Seleccione el Espacio Donde desea insertar
+									</h3>
 							</div>
 							<!-- /.card-header -->
 							<div class="card-body">
@@ -111,6 +111,20 @@
 											</tr>
 										</table>
 									</div>
+									<div>
+										<table class="table table-bordered table-striped table-right">
+											<tr>
+												<th th:each="esta : ${espacios}"
+													th:if="${esta.posicion.columna==1 and esta.posicion.fila==6}">
+													<a th:if="${esta.estado==false}" class="btn btn-success btn"
+													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado==false} ? 'Vacio'"></a>
+													<a th:if="${esta.estado==true}" class="btn btn-danger btn"
+													th:href="@{/verEstante/} + ${esta.id}" th:text="${esta.estado==true} ? 'Ocupado'"></a>
+												</th>
+												
+											</tr>
+										</table>
+									</div>
 								</div>
 								
 
@@ -183,6 +197,20 @@
 											<tr>
 												<th th:each="esta : ${espacios}"
 													th:if="${esta.posicion.columna==2 and esta.posicion.fila==5}">
+													<a th:if="${esta.estado==false}" class="btn btn-success btn"
+													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado==false} ? 'Vacio'"></a>
+													<a th:if="${esta.estado==true}" class="btn btn-danger btn"
+													th:href="@{/verEstante/} + ${esta.id}" th:text="${esta.estado==true} ? 'Ocupado'"></a>
+												</th>
+												
+											</tr>
+										</table>
+									</div>
+									<div>
+										<table class="table table-bordered table-striped table-right">
+											<tr>
+												<th th:each="esta : ${espacios}"
+													th:if="${esta.posicion.columna==2 and esta.posicion.fila==6}">
 													<a th:if="${esta.estado==false}" class="btn btn-success btn"
 													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado==false} ? 'Vacio'"></a>
 													<a th:if="${esta.estado==true}" class="btn btn-danger btn"

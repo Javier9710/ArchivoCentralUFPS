@@ -39,15 +39,19 @@
 								</center>
 							</div>
 							<!-- /.card-header -->
-							
-								<form>
+
+							<form th:action="@{/regCaja}" th:Object="${caja}" method="post">
 								<div class="card-body">
 									<div class="row">
 										<div class="col-sm-6">
 											<!-- text input -->
 											<div class="form-group">
-												<label>Dependencia:</label> <input type="text"
-													class="form-control" placeholder="Enter ...">
+												<label>Seleccionar Bloque</label> <select
+													class="form-control select2" style="width: 100%;"
+													name="bloque2">
+													<option th:each="dep : ${dependencias}"
+														th:value="${dep.id}" th:text="${dep.nombre}"></option>
+												</select>
 											</div>
 										</div>
 										<div class="col-sm-6">
@@ -69,7 +73,7 @@
 										<div class="col-sm-6">
 											<div class="form-group">
 												<label>Codigo:</label> <input type="text"
-													class="form-control" placeholder="Enter ..." >
+													class="form-control" placeholder="Enter ...">
 											</div>
 										</div>
 									</div>
@@ -85,7 +89,7 @@
 										<div class="col-sm-6">
 											<div class="form-group">
 												<label>Codigo:</label> <input type="text"
-													class="form-control" placeholder="Enter ..." >
+													class="form-control" placeholder="Enter ...">
 											</div>
 										</div>
 									</div>
@@ -101,7 +105,7 @@
 										<div class="col-sm-6">
 											<div class="form-group">
 												<label>Nº Legajos:</label> <input type="text"
-													class="form-control" placeholder="Enter ..." >
+													class="form-control" placeholder="Enter ...">
 											</div>
 										</div>
 									</div>
@@ -144,29 +148,29 @@
 											</div>
 										</div>
 									</div>
-									</div>
+								</div>
 
-									<div class="card-footer">
-										<input type="submit" class="btn btn-primary" value="Registar">
-									</div>
+								<div class="card-footer">
+									<input type="submit" class="btn btn-primary" value="Registar">
+								</div>
 
-									<!-- input states -->
+								<!-- input states -->
 
-								</form>
-							
+							</form>
+
 							<!-- /.card-body -->
 						</div>
 					</div>
-					
+
 				</div>
-				
+
 			</div>
-			
+
 
 		</section>
 
 	</div>
-	
+
 
 
 

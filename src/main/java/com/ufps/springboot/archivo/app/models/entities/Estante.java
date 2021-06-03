@@ -31,7 +31,7 @@ public class Estante implements Serializable {
 	
 	@PrePersist
 	public void estanteDefault() {
-		this.filas=5;
+		this.filas=6;
 		this.columnas=2;	
 	}
 	

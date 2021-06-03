@@ -54,7 +54,7 @@ public class AdminController {
 		model.addAttribute("lista", bloques);
 		Estante e = new Estante();
 		e.setColumnas(2);
-		e.setFilas(5);
+		e.setFilas(6);
 
 		model.addAttribute("bloque",new Bloque());
 		model.addAttribute("estante", e);
