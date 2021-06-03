@@ -56,8 +56,8 @@
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label>Codigo:</label> <input type="text"
-													class="form-control" placeholder="Enter ...">
+												<label>Codigo:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{codigo1}" name="codigo1" type="text"
+													class="form-control" placeholder="">
 											</div>
 										</div>
 									</div>
@@ -66,30 +66,14 @@
 										<div class="col-sm-6">
 											<!-- text input -->
 											<div class="form-group">
-												<label>Serie:</label> <input type="text"
-													class="form-control" placeholder="Enter ...">
+												<label>Serie:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{serie}" name="serie" type="text"
+													class="form-control" placeholder="">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label>Codigo:</label> <input type="text"
-													class="form-control" placeholder="Enter ...">
-											</div>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-sm-6">
-											<!-- text input -->
-											<div class="form-group">
-												<label>SubSerie:</label> <input type="text"
-													class="form-control" placeholder="Enter ...">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label>Codigo:</label> <input type="text"
-													class="form-control" placeholder="Enter ...">
+												<label>Codigo:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{codigo2}" name="codigo2" type="text"
+													class="form-control" placeholder="">
 											</div>
 										</div>
 									</div>
@@ -98,14 +82,30 @@
 										<div class="col-sm-6">
 											<!-- text input -->
 											<div class="form-group">
-												<label>Caja Nº:</label> <input type="text"
-													class="form-control" placeholder="Enter ...">
+												<label>SubSerie:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{subserie}" name="subserie" type="text"
+													class="form-control" placeholder="">
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
-												<label>Nº Legajos:</label> <input type="text"
-													class="form-control" placeholder="Enter ...">
+												<label>Codigo:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{codigo3}" name="codigo3" type="text"
+													class="form-control" placeholder="">
+											</div>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-sm-6">
+											<!-- text input -->
+											<div class="form-group">
+												<label>Caja Nº:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{Ncaja}" name="Ncaja" type="text"
+													class="form-control" placeholder="">
+											</div>
+										</div>
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label>Nº Legajos:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{Nlegajos}" name="Nlegajos" type="text"
+													class="form-control" placeholder="">
 											</div>
 										</div>
 									</div>
@@ -116,17 +116,17 @@
 											<div class="form-group">
 
 												<div class="nativeDatePicker">
-													<label for="bday">Fechas Extremas - Desde:</label> <input
-														class="form-control" type="date" id="bday" name="bday">
-													<span class="validity"></span>
+													<label for="bday">Fechas Extremas - Desde:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{fechaDesde}"
+														class="form-control" type="date" id="bday" name="fechaDesde">
+													<span ></span>
 												</div>
 											</div>
 										</div>
 										<div class="col-sm-6">
 											<div class="form-group">
 												<div class="nativeDatePicker">
-													<label for="bday">Fechas Extremas - Hasta:</label> <input
-														class="form-control" type="date" id="bday" name="bday">
+													<label for="bday">Fechas Extremas - Hasta:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{fechaHasta}" 
+														class="form-control" type="date" id="bday" name="fechaHasta">
 													<span class="validity"></span>
 												</div>
 											</div>
@@ -137,14 +137,14 @@
 										<div class="col-sm-10">
 											<!-- text input -->
 											<div class="form-group">
-												<label>Retencion:</label> <input type="text"
-													class="form-control" placeholder="Enter ...">
+												<label>Retencion:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{retencion}" name="retencion" type="text"
+													class="form-control" placeholder="">
 											</div>
 
 											<div class="form-group">
 												<label>Observaciones:</label>
-												<textarea class="form-control" rows="3"
-													placeholder="Enter ..."></textarea>
+												<textarea th:errorclass="'form-control alert-danger'" th:field="*{observaciones}" name="observaciones" class="form-control" rows="3"
+													placeholder="Escriba aqui las Observaciones"></textarea>
 											</div>
 										</div>
 									</div>
