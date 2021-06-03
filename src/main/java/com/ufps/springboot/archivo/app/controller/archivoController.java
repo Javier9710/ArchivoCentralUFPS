@@ -10,12 +10,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.ufps.springboot.archivo.app.models.entities.Caja;
 import com.ufps.springboot.archivo.app.models.entities.Dependencia;
 import com.ufps.springboot.archivo.app.models.entities.Espacio;
 import com.ufps.springboot.archivo.app.models.entities.Estante;
+import com.ufps.springboot.archivo.app.models.service.CajaServiceImpl;
 import com.ufps.springboot.archivo.app.models.service.DependenciaServiceImpl;
 import com.ufps.springboot.archivo.app.models.service.EstanteServiceImpl;
 
@@ -27,6 +29,13 @@ public class archivoController {
 	
 	@Autowired
 	private DependenciaServiceImpl dependenciaService;
+	
+	@Autowired
+	private CajaServiceImpl cajaService;
+	
+	
+	
+	//-----------------------------------------------------------------
 	
 	@GetMapping(value = "/regArchivo")
 	public String crear(Model model) {
@@ -57,14 +66,19 @@ public class archivoController {
 		caja.setEspacio(e);
 		model.addAttribute("caja", caja);
 		model.addAttribute("dependencias", dep);
+		model.addAttribute("espacio", e);
 		return "regCaja";
 		
 	}
 	
 	@PostMapping(value = "/regCaja")
-	public String registrarCaja(@Valid Caja caja, Model model) {
-		
-		
-		return "";
+	public String registrarCaja(@Valid Caja caja, @RequestParam(value = "bloque2") Long id, @RequestParam(value = "espacio") Espacio e, Model model) {
+		Dependencia dep = dependenciaService.findById(id);
+		caja.setDependencia(dep.getNombre());
+		caja.setDependenciaObject(dep);
+		caja.setEspacio(e);
+		e.setEstado(true);
+		cajaService.saveCaja(caja);
+		return "verCaja";
 	}
 }
