@@ -38,7 +38,11 @@ public class CajaServiceImpl implements ICajaService {
 	}
 	
 	public void generarLegajos(Caja caja, String nLegajos) {
-		
+		for (int i = 1; i <= Integer.parseInt(nLegajos); i++) {
+			Legajo legajo = new Legajo();
+			legajo.setCaja(caja);
+			this.save(legajo);
+		}
 	}
 
 	@Override

@@ -35,6 +35,14 @@ public class Legajo implements Serializable {
 	
 	//--------------------------------------------------
 	
+	public Caja getCaja() {
+		return caja;
+	}
+
+	public void setCaja(Caja caja) {
+		this.caja = caja;
+	}
+
 	public Legajo() {
 		
 	}

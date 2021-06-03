@@ -79,6 +79,7 @@ public class archivoController {
 		caja.setEspacio(e);
 		e.setEstado(true);
 		cajaService.saveCaja(caja);
+		cajaService.generarLegajos(caja, caja.getNlegajos());
 		return "verCaja";
 	}
 }
