@@ -50,4 +50,9 @@ public class CajaServiceImpl implements ICajaService {
 		cajaDao.save(caja);
 	}
 
+	@Override
+	public List<Legajo> findAllById(Long id) {
+		return (List<Legajo>)legajoDao.findAllById(id);
+	}
+
 }

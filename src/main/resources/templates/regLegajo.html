@@ -13,7 +13,7 @@
 			<div class="container-fluid">
 				<div class="row mb-2">
 					<div class="col-sm-6">
-						<h1>Formulario de Caja</h1>
+						<h1>Formulario de Legajo</h1>
 					</div>
 					<div class="col-sm-6">
 						<ol class="breadcrumb float-sm-right">
@@ -35,79 +35,51 @@
 						<div class="card card-warning">
 							<div class="card-header">
 								<center>
-									<h3 class="">Registro de Caja</h3>
+									<h3 class="">Registro de Legajo</h3>
 								</center>
 							</div>
 							<!-- /.card-header -->
 
-							<form th:action="@{/regCaja}" th:Object="${caja}" method="post">
+							<form th:action="@{/regLegajo}" th:Object="${legajo}" method="post">
 								<div class="card-body">
 									<div class="row">
-										<div class="col-sm-6">
-											<!-- text input -->
+										<div class="col-sm-12">
 											<div class="form-group">
-												<label>Seleccionar Bloque</label> <select
-													class="form-control select2" style="width: 100%;"
-													name="bloque2">
-													<option th:each="dep : ${dependencias}"
-														th:value="${dep.id}" th:text="${dep.nombre}"></option>
-												</select>
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label>Codigo:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{codigo1}" name="codigo1" type="text"
+												<label>Codigo:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{dependencia}" name="dependencia" type="text"
 													class="form-control" placeholder="">
 											</div>
 										</div>
 									</div>
 
 									<div class="row">
-										<div class="col-sm-6">
+										<div class="col-sm-12">
 											<!-- text input -->
 											<div class="form-group">
 												<label>Serie:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{serie}" name="serie" type="text"
 													class="form-control" placeholder="">
 											</div>
 										</div>
-										<div class="col-sm-6">
+									</div>
+
+									<div class="row">
+										
+										<div class="col-sm-12">
 											<div class="form-group">
-												<label>Codigo:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{codigo2}" name="codigo2" type="text"
+												<label>Sub-Serie:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{subSerie}" name="subSerie" type="text"
 													class="form-control" placeholder="">
 											</div>
 										</div>
 									</div>
 
 									<div class="row">
-										<div class="col-sm-6">
+										<div class="col-sm-12">
 											<!-- text input -->
 											<div class="form-group">
-												<label>SubSerie:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{subserie}" name="subserie" type="text"
+												<label>Expediente:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{expediente}" name="expediente" type="text"
 													class="form-control" placeholder="">
 											</div>
 										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label>Codigo:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{codigo3}" name="codigo3" type="text"
-													class="form-control" placeholder="">
-											</div>
-										</div>
-									</div>
-
-									<div class="row">
-										<div class="col-sm-6">
-											<!-- text input -->
-											<div class="form-group">
-												<label>Caja Nº:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{Ncaja}" name="Ncaja" type="text"
-													class="form-control" placeholder="">
-											</div>
-										</div>
-										<div class="col-sm-6">
-											<div class="form-group">
-												<label>Nº Legajos:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{Nlegajos}" name="Nlegajos" type="number"
-													class="form-control" placeholder="">
-											</div>
-										</div>
+										
 									</div>
 
 									<div class="row">
@@ -134,17 +106,28 @@
 									</div>
 
 									<div class="row">
-										<div class="col-sm-10">
+										<div class="col-sm-6">
 											<!-- text input -->
 											<div class="form-group">
-												<label>Retencion:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{retencion}" name="retencion" type="text"
+												<label>Legajo Nº:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{Nlegajo}" name="Nlegajo" type="number"
 													class="form-control" placeholder="">
 											</div>
-
+											</div>
+											<div class="col-sm-6">
 											<div class="form-group">
-												<label>Observaciones:</label>
-												<textarea th:errorclass="'form-control alert-danger'" th:field="*{observaciones}" name="observaciones" class="form-control" rows="3"
-													placeholder="Escriba aqui las Observaciones"></textarea>
+												<label>De:</label>
+												<input th:errorclass="'form-control alert-danger'" th:field="*{Totallegajos}" name="Totallegajos" class="form-control" type="number"
+													placeholder=""/>
+											</div>
+											</div>
+										</div>
+									
+									
+									<div class="row">
+										<div class="col-sm-6">
+											<div class="form-group">
+												<label>Total Foleos:</label> <input th:errorclass="'form-control alert-danger'" th:field="*{totalFoleos}" name="totalFoleos" type="number"
+													class="form-control">
 											</div>
 										</div>
 									</div>
@@ -156,7 +139,8 @@
 								</div>
 
 								<!-- input states -->
-								<input type="hidden" th:value="${espacio.id}" name="espacio">
+								<input type="hidden" th:field="${legajo.id}" name="id">
+								<input type="hidden" th:field="${legajo.caja.id}" name="caja">
 							</form>
 
 							<!-- /.card-body -->

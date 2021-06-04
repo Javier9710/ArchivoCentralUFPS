@@ -17,6 +17,7 @@ import com.ufps.springboot.archivo.app.models.entities.Caja;
 import com.ufps.springboot.archivo.app.models.entities.Dependencia;
 import com.ufps.springboot.archivo.app.models.entities.Espacio;
 import com.ufps.springboot.archivo.app.models.entities.Estante;
+import com.ufps.springboot.archivo.app.models.entities.Legajo;
 import com.ufps.springboot.archivo.app.models.service.CajaServiceImpl;
 import com.ufps.springboot.archivo.app.models.service.DependenciaServiceImpl;
 import com.ufps.springboot.archivo.app.models.service.EstanteServiceImpl;
@@ -80,6 +81,30 @@ public class archivoController {
 		e.setEstado(true);
 		cajaService.saveCaja(caja);
 		cajaService.generarLegajos(caja, caja.getNlegajos());
+		return "redirect:/verCaja/"+caja.getId();
+	}
+	
+	@GetMapping(value = "/verCaja/{id}")
+	public String verLegajos(@PathVariable Long id, Model model) {
+		List<Legajo> legajos = cajaService.findAllById(id);
+		model.addAttribute("legajos", legajos);		
 		return "verCaja";
+	}
+	
+	@GetMapping(value = "/regLegajo/{id}")
+	public String formularioLegajo(@PathVariable Long id, Model model) {
+		Legajo legajo =  cajaService.findById(id);
+		model.addAttribute("legajo", legajo);
+		return "regLegajo";
+	}
+	
+	@PostMapping(value = "/regLegajo")
+	public String registrarLegajo(@Valid Legajo legajo, @RequestParam(value = "id") long id, RedirectAttributes flash, Model model) {
+		Legajo leg = cajaService.findById(id);
+		if (leg==null) {
+			return "redirect:/";	
+		}
+		cajaService.save(legajo);
+		return "redirect:/verCaja/"+legajo.getCaja().getId();
 	}
 }

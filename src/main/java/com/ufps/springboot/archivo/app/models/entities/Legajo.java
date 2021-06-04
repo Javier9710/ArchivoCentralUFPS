@@ -1,6 +1,7 @@
 package com.ufps.springboot.archivo.app.models.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -8,7 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "legajos")
@@ -26,14 +30,36 @@ public class Legajo implements Serializable {
 	private String serie;
 	private String subSerie;
 	private String expediente;
-	private String rangoFecha;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date fechaDesde;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	private Date fechaHasta;
 	private String Nlegajo;
+	private String Totallegajos;
+	public String getTotallegajos() {
+		return Totallegajos;
+	}
+
+	public void setTotallegajos(String totallegajos) {
+		Totallegajos = totallegajos;
+	}
+
 	private String totalFoleos;
 	@ManyToOne
 	@JoinColumn(name = "caja")
 	private Caja caja;
 	
 	//--------------------------------------------------
+	
+	
+	@PrePersist
+	public void init() {
+		this.dependencia="Sin Info";
+		this.serie="Sin Info";
+		this.fechaDesde=new Date();
+		this.fechaHasta=new Date();
+		this.totalFoleos="Sin Info";
+	}
 	
 	public Caja getCaja() {
 		return caja;
@@ -47,14 +73,13 @@ public class Legajo implements Serializable {
 		
 	}
 
-	public Legajo(Long id, String dependencia, String serie, String subSerie, String expediente, String rangoFecha,
+	public Legajo(Long id, String dependencia, String serie, String subSerie, String expediente, Date rangoFecha,
 			String nlegajo, String totalFoleos) {
 		this.id = id;
 		this.dependencia = dependencia;
 		this.serie = serie;
 		this.subSerie = subSerie;
 		this.expediente = expediente;
-		this.rangoFecha = rangoFecha;
 		this.Nlegajo = nlegajo;
 		this.totalFoleos = totalFoleos;
 	}
@@ -99,13 +124,6 @@ public class Legajo implements Serializable {
 		this.expediente = expediente;
 	}
 
-	public String getRangoFecha() {
-		return rangoFecha;
-	}
-
-	public void setRangoFecha(String rangoFecha) {
-		this.rangoFecha = rangoFecha;
-	}
 
 	public String getNlegajo() {
 		return Nlegajo;
@@ -125,6 +143,22 @@ public class Legajo implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public Date getFechaDesde() {
+		return fechaDesde;
+	}
+
+	public void setFechaDesde(Date fechaDesde) {
+		this.fechaDesde = fechaDesde;
+	}
+
+	public Date getFechaHasta() {
+		return fechaHasta;
+	}
+
+	public void setFechaHasta(Date fechaHasta) {
+		this.fechaHasta = fechaHasta;
 	}
 	
 	

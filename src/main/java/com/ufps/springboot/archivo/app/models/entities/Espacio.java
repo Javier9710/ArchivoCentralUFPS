@@ -8,6 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
@@ -26,10 +27,22 @@ public class Espacio implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "posicion")
 	private Posicion posicion;
+	
+	@OneToOne(mappedBy = "espacio")
+	@JoinColumn(name = "caja")
+	private Caja caja;
 
 	
 	//------------------------------------------
 	
+	public Caja getCaja() {
+		return caja;
+	}
+
+	public void setCaja(Caja caja) {
+		this.caja = caja;
+	}
+
 	@PrePersist
 	public void estado() {
 	 this.estado=false;

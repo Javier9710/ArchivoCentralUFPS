@@ -13,6 +13,8 @@ public interface ICajaService {
 	
 	public Legajo findById(Long id);
 	
+	public List<Legajo> findAllById(Long id);
+	
 	//----------------------------------
 	
 	public void saveCaja(Caja caja);
