@@ -41,8 +41,8 @@ public class Caja implements Serializable {
 	private int expediente;
 	private String tipoCaja;
 	@OneToOne
-	@JoinColumn(name = "espacio")
-	private Espacio espacio;
+	@JoinColumn(name = "posicion")
+	private Posicion posicion;
 	@ManyToOne
 	@JoinColumn(name = "dependenciaObject")
 	private Dependencia dependenciaObject;
@@ -64,7 +64,7 @@ public class Caja implements Serializable {
 
 	public Caja(Long id, String dependencia, String codigo1, String serie, String codigo2, String subserie,
 			String codigo3, String ncaja, String nlegajos, Date fechaDesde, Date fechaHasta, String retencion,
-			String observaciones, int expediente, String tipoCaja, Espacio espacio, Dependencia dependenciaObject) {
+			String observaciones, int expediente, String tipoCaja, Posicion posicion, Dependencia dependenciaObject) {
 		this.id = id;
 		this.dependencia = dependencia;
 		this.codigo1 = codigo1;
@@ -80,7 +80,7 @@ public class Caja implements Serializable {
 		this.observaciones = observaciones;
 		this.expediente = expediente;
 		this.tipoCaja = tipoCaja;
-		this.espacio = espacio;
+		this.posicion = posicion;
 		this.dependenciaObject = dependenciaObject;
 	}
 
@@ -218,13 +218,13 @@ public class Caja implements Serializable {
 	}
 
 
-	public Espacio getEspacio() {
-		return espacio;
+	public Posicion getPosicion() {
+		return posicion;
 	}
 
 
-	public void setEspacio(Espacio espacio) {
-		this.espacio = espacio;
+	public void setPosicion(Posicion posicion) {
+		this.posicion = posicion;
 	}
 
 

@@ -58,7 +58,7 @@ public class AdminController {
 		model.addAttribute("usuarios", usuarioService.cantidadUsuarios());
 		model.addAttribute("dependencias", dependenciaService.cantidadDependencias());
 		model.addAttribute("cajas", cajaService.cantidadCajas());
-		model.addAttribute("espaciosV", estanteService.cantidadEspacios());
+		//model.addAttribute("espaciosV", estanteService.cantidadEspacios());
 
 		return "index";
 	}

@@ -5,10 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ufps.springboot.archivo.app.models.dao.IEspacioDao;
 import com.ufps.springboot.archivo.app.models.dao.IEstanteDao;
 import com.ufps.springboot.archivo.app.models.dao.IPosicionDao;
-import com.ufps.springboot.archivo.app.models.entities.Espacio;
 import com.ufps.springboot.archivo.app.models.entities.Estante;
 import com.ufps.springboot.archivo.app.models.entities.Posicion;
 
@@ -20,9 +18,6 @@ public class EstanteServiceImpl implements IEstanteService {
 	
 	@Autowired
 	private IPosicionDao posicionDao;
-	
-	@Autowired
-	private IEspacioDao espacioDao;
 
 	@Override
 	public void save(Estante estante) {
@@ -46,10 +41,10 @@ public class EstanteServiceImpl implements IEstanteService {
 				posicion.setEstante(estante);
 				this.savePosicion(posicion);
 				for (int k = 1; k <= 4; k++) {
-					Espacio espacio = new Espacio(); 
-					espacio.setEstado(null);
-					espacio.setPosicion(posicion);
-					this.saveEspacio(espacio);
+					//Espacio espacio = new Espacio(); 
+					//espacio.setEstado(null);
+					//espacio.setPosicion(posicion);
+					//this.saveEspacio(espacio);
 					
 					
 				}
@@ -60,10 +55,11 @@ public class EstanteServiceImpl implements IEstanteService {
 
 	}
 
+	/*
 	@Override
 	public void saveEspacio(Espacio espacio) {
 		espacioDao.save(espacio);
-	}
+	}*/
 
 	@Override
 	public List<Estante> findAll() {
@@ -80,21 +76,25 @@ public class EstanteServiceImpl implements IEstanteService {
 		return EstanteDao.findById(Id).orElse(null);
 	}
 
+	/*
 	@Override
 	public List<Espacio> listaEspacios(Long id) {
 		return (List<Espacio>) espacioDao.listEspacio(id);
-	}
+	}*/
 
+	/*
 	@Override
 	public Espacio findEspacio(Long id) {
 	
 		return espacioDao.findById(id).orElse(null);
-	}
+	}*/
 
+	
+	/*
 	@Override
 	public int cantidadEspacios() {
 		return espacioDao.cantidadEspaciosV();
-	}
+	}*/
 
 	
 	
