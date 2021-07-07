@@ -26,11 +26,13 @@ public class Posicion implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "estante")
 	private Estante estante;
-	
+	/*
 	@OneToOne(mappedBy = "posicion")
 	@JoinColumn(name = "caja")
 	private Caja caja;
+	*/
 	
+	private Double estado;
 	
 	//---------------------------------------------------
 	
@@ -39,11 +41,12 @@ public class Posicion implements Serializable {
 		
 	}
 	
-	public Posicion(Long id, int columna, int fila, Estante estante) {
+	public Posicion(Long id, int columna, int fila, Estante estante, Double estado) {
 		this.id = id;
 		this.columna = columna;
 		this.fila = fila;
 		this.estante = estante;
+		this.estado = estado;
 	}
 
 	public Long getId() {
@@ -80,6 +83,14 @@ public class Posicion implements Serializable {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	public Double getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Double estado) {
+		estado = estado;
 	}
 	
 	

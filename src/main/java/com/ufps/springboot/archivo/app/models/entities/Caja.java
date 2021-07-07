@@ -40,9 +40,17 @@ public class Caja implements Serializable {
 	private String observaciones;
 	private int expediente;
 	private String tipoCaja;
-	@OneToOne
+	
+	
+	@ManyToOne
 	@JoinColumn(name = "posicion")
 	private Posicion posicion;
+	
+	/*
+	@OneToOne
+	@JoinColumn(name = "posicion")
+	private Posicion posicion; */
+	
 	@ManyToOne
 	@JoinColumn(name = "dependenciaObject")
 	private Dependencia dependenciaObject;
