@@ -19,6 +19,8 @@ public interface ICajaService {
 	
 	public void saveCaja(Caja caja);
 	
+	public int cantidadCajas();
+	
 	
 
 }

@@ -91,6 +91,11 @@ public class EstanteServiceImpl implements IEstanteService {
 		return espacioDao.findById(id).orElse(null);
 	}
 
+	@Override
+	public int cantidadEspacios() {
+		return espacioDao.cantidadEspaciosV();
+	}
+
 	
 	
 	

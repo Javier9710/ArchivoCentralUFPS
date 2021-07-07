@@ -55,4 +55,9 @@ public class CajaServiceImpl implements ICajaService {
 		return (List<Legajo>)legajoDao.findAllById(id);
 	}
 
+	@Override
+	public int cantidadCajas() {
+		return cajaDao.cantidadCajas();
+	}
+
 }

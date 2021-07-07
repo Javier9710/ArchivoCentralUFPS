@@ -14,6 +14,8 @@ public interface IDependenciaService {
 	
 	public void delete(Long id);
 	
+	public int cantidadDependencias();
+	
 	
 
 }

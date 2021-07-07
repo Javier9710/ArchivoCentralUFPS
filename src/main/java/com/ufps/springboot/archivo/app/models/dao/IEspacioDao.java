@@ -12,5 +12,8 @@ public interface IEspacioDao extends CrudRepository<Espacio, Long> {
 	
 	@Query("select e from Espacio e where e.posicion.estante.id=?1")
 	public List<Espacio> listEspacio(Long id);	
+	
+	@Query("select count(e) from Espacio e where e.estado='true'")
+	public int cantidadEspaciosV();
 
 }

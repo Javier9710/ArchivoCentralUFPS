@@ -35,4 +35,9 @@ public class DependenciaServiceImpl implements IDependenciaService {
 		
 	}
 
+	@Override
+	public int cantidadDependencias() {
+		return dependenciaDao.cantidadDependencias();
+	}
+
 }

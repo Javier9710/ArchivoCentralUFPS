@@ -17,6 +17,8 @@ public interface IUsuarioService {
 	
 	public Usuario findById(Long id);
 	
+	public int cantidadUsuarios();
+	
 	//---------------------------------
 	
 	public List<Rol> findallRol();

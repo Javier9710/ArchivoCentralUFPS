@@ -21,6 +21,8 @@ import com.ufps.springboot.archivo.app.models.entities.Estante;
 import com.ufps.springboot.archivo.app.models.entities.Rol;
 import com.ufps.springboot.archivo.app.models.entities.Usuario;
 import com.ufps.springboot.archivo.app.models.service.BloqueServiceImpl;
+import com.ufps.springboot.archivo.app.models.service.CajaServiceImpl;
+import com.ufps.springboot.archivo.app.models.service.DependenciaServiceImpl;
 import com.ufps.springboot.archivo.app.models.service.EstanteServiceImpl;
 import com.ufps.springboot.archivo.app.models.service.UsuarioServiceImpl;
 
@@ -31,19 +33,32 @@ public class AdminController {
 	private BloqueServiceImpl bloqueService;
 	
 	@Autowired
+	private DependenciaServiceImpl dependenciaService;
+	
+	@Autowired
 	private EstanteServiceImpl estanteService;
 	
 	@Autowired
 	private UsuarioServiceImpl usuarioService;
 	
 	@Autowired
+	private CajaServiceImpl cajaService;
+	
+	@Autowired
 	private BCryptPasswordEncoder passwordEncoder;
+	
+
 
 
 	
 	@Secured(value = { "ROLE_ADMIN", "ROLE_USER" })
 	@GetMapping(value = { "/index", "/" })
 	public String home(Model model) {
+		
+		model.addAttribute("usuarios", usuarioService.cantidadUsuarios());
+		model.addAttribute("dependencias", dependenciaService.cantidadDependencias());
+		model.addAttribute("cajas", cajaService.cantidadCajas());
+		model.addAttribute("espaciosV", estanteService.cantidadEspacios());
 
 		return "index";
 	}

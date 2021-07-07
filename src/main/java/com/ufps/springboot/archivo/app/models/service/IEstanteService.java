@@ -31,6 +31,8 @@ public interface IEstanteService {
 	
 	public Espacio findEspacio(Long id);
 	
+	public int cantidadEspacios();
+	
 	
 	
 	

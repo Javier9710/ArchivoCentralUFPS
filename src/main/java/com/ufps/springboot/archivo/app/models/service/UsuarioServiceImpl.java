@@ -60,6 +60,11 @@ public class UsuarioServiceImpl implements IUsuarioService {
 		return rolDao.findRolById(username);
 	}
 
+	@Override
+	public int cantidadUsuarios() {
+		return usuarioDao.cantidadUsuarios();
+	}
+
 	
 
 	
