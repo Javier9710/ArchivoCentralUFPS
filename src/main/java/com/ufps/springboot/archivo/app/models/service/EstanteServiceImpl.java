@@ -31,8 +31,6 @@ public class EstanteServiceImpl implements IEstanteService {
 	}
 	
 	public void generar(Estante estante) {
-		
-		
 		for (int i = 1; i <= estante.getColumnas(); i++) {
 			for (int j = 1; j <= estante.getFilas(); j++) {
 				Posicion posicion = new Posicion();
@@ -40,26 +38,12 @@ public class EstanteServiceImpl implements IEstanteService {
 				posicion.setFila(j);
 				posicion.setEstante(estante);
 				this.savePosicion(posicion);
-				for (int k = 1; k <= 4; k++) {
-					//Espacio espacio = new Espacio(); 
-					//espacio.setEstado(null);
-					//espacio.setPosicion(posicion);
-					//this.saveEspacio(espacio);
-					
-					
-				}
 				
 			}
 		}
 		
-
 	}
 
-	/*
-	@Override
-	public void saveEspacio(Espacio espacio) {
-		espacioDao.save(espacio);
-	}*/
 
 	@Override
 	public List<Estante> findAll() {
@@ -75,30 +59,6 @@ public class EstanteServiceImpl implements IEstanteService {
 	public Estante findById(Long Id) {
 		return EstanteDao.findById(Id).orElse(null);
 	}
-
-	/*
-	@Override
-	public List<Espacio> listaEspacios(Long id) {
-		return (List<Espacio>) espacioDao.listEspacio(id);
-	}*/
-
-	/*
-	@Override
-	public Espacio findEspacio(Long id) {
-	
-		return espacioDao.findById(id).orElse(null);
-	}*/
-
-	
-	/*
-	@Override
-	public int cantidadEspacios() {
-		return espacioDao.cantidadEspaciosV();
-	}*/
-
-	
-	
-	
 	
 
 }

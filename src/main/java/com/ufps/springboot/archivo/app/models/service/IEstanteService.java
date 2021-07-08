@@ -24,13 +24,6 @@ public interface IEstanteService {
 	
 	//----------------------------------------------------
 	
-	//public void saveEspacio(Espacio espacio);
-	
-	//public List<Espacio> listaEspacios(Long id);
-	
-	//public Espacio findEspacio(Long id);
-	
-	//public int cantidadEspacios();
 	
 	
 	

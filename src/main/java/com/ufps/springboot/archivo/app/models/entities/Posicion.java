@@ -26,6 +26,7 @@ public class Posicion implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "estante")
 	private Estante estante;
+	
 	/*
 	@OneToOne(mappedBy = "posicion")
 	@JoinColumn(name = "caja")
@@ -90,7 +91,7 @@ public class Posicion implements Serializable {
 	}
 
 	public void setEstado(Double estado) {
-		estado = estado;
+		this.estado = estado;
 	}
 	
 	

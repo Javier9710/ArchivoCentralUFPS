@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+//import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -39,7 +39,10 @@ public class Caja implements Serializable {
 	private String retencion;
 	private String observaciones;
 	private int expediente;
+	
 	private String tipoCaja;
+	
+	private Double tamaño;
 	
 	
 	@ManyToOne
@@ -72,7 +75,8 @@ public class Caja implements Serializable {
 
 	public Caja(Long id, String dependencia, String codigo1, String serie, String codigo2, String subserie,
 			String codigo3, String ncaja, String nlegajos, Date fechaDesde, Date fechaHasta, String retencion,
-			String observaciones, int expediente, String tipoCaja, Posicion posicion, Dependencia dependenciaObject) {
+			String observaciones, int expediente, String tipoCaja, Posicion posicion, Dependencia dependenciaObject,
+			Double tamaño) {
 		this.id = id;
 		this.dependencia = dependencia;
 		this.codigo1 = codigo1;
@@ -90,6 +94,7 @@ public class Caja implements Serializable {
 		this.tipoCaja = tipoCaja;
 		this.posicion = posicion;
 		this.dependenciaObject = dependenciaObject;
+		this.tamaño = tamaño;
 	}
 
 
@@ -259,6 +264,15 @@ public class Caja implements Serializable {
 	public void setTipoCaja(String tipoCaja) {
 		this.tipoCaja = tipoCaja;
 	}
+
+	public Double getTamaño() {
+		return tamaño;
+	}
+
+	public void setTamaño(Double tamaño) {
+		this.tamaño = tamaño;
+	}
+	
 	
 	
 	
