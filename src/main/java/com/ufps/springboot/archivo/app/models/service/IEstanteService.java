@@ -22,6 +22,8 @@ public interface IEstanteService {
 	
 	public void savePosicion(Posicion posicion);
 	
+	public List<Posicion> findAllPosicion(Long id);
+	
 	//----------------------------------------------------
 	
 	

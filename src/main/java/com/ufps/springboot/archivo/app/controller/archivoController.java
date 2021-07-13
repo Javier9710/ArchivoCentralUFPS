@@ -17,6 +17,7 @@ import com.ufps.springboot.archivo.app.models.entities.Caja;
 import com.ufps.springboot.archivo.app.models.entities.Dependencia;
 import com.ufps.springboot.archivo.app.models.entities.Estante;
 import com.ufps.springboot.archivo.app.models.entities.Legajo;
+import com.ufps.springboot.archivo.app.models.entities.Posicion;
 import com.ufps.springboot.archivo.app.models.service.CajaServiceImpl;
 import com.ufps.springboot.archivo.app.models.service.DependenciaServiceImpl;
 import com.ufps.springboot.archivo.app.models.service.EstanteServiceImpl;
@@ -47,6 +48,11 @@ public class archivoController {
 	@GetMapping(value = "/verEstante/{id}")
 	public String ver(@PathVariable Long id, Model model) {
 		Estante e =  estanteService.findById(id);
+		
+		List<Posicion> posiciones = estanteService.findAllPosicion(id);
+		for (int i = 0; i < posiciones.size(); i++) {
+		   System.out.println(posiciones.get(i).getId());
+		}
 		//List<Espacio> espacios = estanteService.listaEspacios(id);
 		//model.addAttribute("espacios", espacios);
 		model.addAttribute("estante", e);
