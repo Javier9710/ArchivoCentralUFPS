@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
+import javax.persistence.PrePersist;
 import javax.persistence.Table;
 
 @Entity
@@ -48,6 +49,11 @@ public class Posicion implements Serializable {
 		this.fila = fila;
 		this.estante = estante;
 		this.estado = estado;
+	}
+	
+	@PrePersist
+	public void init() {
+		estado=4.0;
 	}
 
 	public Long getId() {

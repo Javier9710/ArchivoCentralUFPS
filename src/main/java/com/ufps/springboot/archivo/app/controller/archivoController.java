@@ -53,8 +53,7 @@ public class archivoController {
 		for (int i = 0; i < posiciones.size(); i++) {
 		   System.out.println(posiciones.get(i).getId());
 		}
-		//List<Espacio> espacios = estanteService.listaEspacios(id);
-		//model.addAttribute("espacios", espacios);
+		model.addAttribute("posiciones", posiciones);
 		model.addAttribute("estante", e);
 		return "verEstante";
 		
@@ -62,32 +61,32 @@ public class archivoController {
 	
 	@GetMapping(value = "/ingresarCaja/{id}")
 	public String crearCaja(@PathVariable Long id, Model model, RedirectAttributes flash) {
-		/*
-		Espacio e = estanteService.findEspacio(id);
+		
+		Posicion p = estanteService.findByIdPos(id);
 		List<Dependencia>  dep=   dependenciaService.findAll();
-		if (e==null) {
+		if (p==null) {
 			flash.addFlashAttribute("error", "El Espacio no Existe");
 			return "redirect:/regArchivo";
-		}*/
+		}
 		Caja caja = new Caja();
-		//caja.setEspacio(e);
+		caja.setPosicion(p);
 		model.addAttribute("caja", caja);
-		//model.addAttribute("dependencias", dep);
-		//model.addAttribute("espacio", e);
+		model.addAttribute("dependencias", dep);
+		model.addAttribute("posicion", p);
 		return "regCaja";
 		
 	}
 	
 	@PostMapping(value = "/regCaja")
-	public String registrarCaja(@Valid Caja caja, @RequestParam(value = "dependencia") Long id, /* @RequestParam(value = "espacio") Espacio e , */Model model, RedirectAttributes flash) {
+	public String registrarCaja(@Valid Caja caja, @RequestParam(value = "dependencia") Long id, @RequestParam(value = "posicion") Posicion p, Model model, RedirectAttributes flash) {
 		Dependencia dep = dependenciaService.findById(id);
 		caja.setDependencia(dep.getNombre());
 		caja.setDependenciaObject(dep);
-		//caja.setEspacio(e);
+		caja.setPosicion(p);
 		//e.setEstado(true);
 		if (caja.getNlegajos()=="" || Integer.parseInt(caja.getNlegajos())<=0) {
 			flash.addFlashAttribute("error", "No Pueden haber cajas con 0 Legajos");
-			//return "redirect:/verEstante/"+e.getPosicion().getEstante().getId();
+			return "redirect:/verEstante/"+p.getEstante().getId();
 			
 		}
 		cajaService.saveCaja(caja);

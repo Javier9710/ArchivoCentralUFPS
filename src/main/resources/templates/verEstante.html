@@ -44,12 +44,13 @@
 									<div>
 										<table class="table table-bordered table-striped table-right">
 											<tr>
-												<th th:each="esta : ${espacios}"
-													th:if="${esta.posicion.columna==1 and esta.posicion.fila==1}">
-													<a th:if="${esta.estado==false}" class="btn btn-success btn"
-													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado==false} ? 'Vacio'"></a>
-													<a th:if="${esta.estado==true}" class="btn btn-danger btn"
-													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado==true} ? 'Ocupado'"></a>
+												<th th:each="esta : ${posiciones}"
+													th:if="${esta.columna==1 and esta.fila==1}">
+													<a th:if="${esta.estado>0.1}" class="btn btn-success btn"
+													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado>0.1} ? 'Vacio'"></a>
+													<a th:if="${esta.estado<=0.1}" class="btn btn-danger btn"
+													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado<=0.1} ? 'Ocupado'"></a>
+													
 												</th>
 												
 											</tr>
@@ -58,12 +59,12 @@
 									<div>
 										<table class="table table-bordered table-striped table-right">
 											<tr>
-												<th th:each="esta : ${espacios}"
-													th:if="${esta.posicion.columna==1 and esta.posicion.fila==2}">
-													<a th:if="${esta.estado==false}" class="btn btn-success btn"
-													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado==false} ? 'Vacio'"></a>
-													<a th:if="${esta.estado==true}" class="btn btn-danger btn"
-													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado==true} ? 'Ocupado'"></a>
+												<th th:each="esta : ${posiciones}"
+													th:if="${esta.columna==1 and esta.fila==2}">
+													<a th:if="${esta.estado>0.1}" class="btn btn-success btn"
+													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado>0.1} ? 'Vacio'"></a>
+													<a th:if="${esta.estado<=0.1}" class="btn btn-danger btn"
+													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado<=0.1} ? 'Ocupado'"></a>
 												</th>
 												
 											</tr>
@@ -72,12 +73,12 @@
 									<div>
 										<table class="table table-bordered table-striped table-right">
 											<tr>
-												<th th:each="esta : ${espacios}"
-													th:if="${esta.posicion.columna==1 and esta.posicion.fila==3}">
-													<a th:if="${esta.estado==false}" class="btn btn-success btn"
-													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado==false} ? 'Vacio'"></a>
-													<a th:if="${esta.estado==true}" class="btn btn-danger btn"
-													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado==true} ? 'Ocupado'"></a>
+												<th th:each="esta : ${posiciones}"
+													th:if="${esta.columna==1 and esta.fila==3}">
+													<a th:if="${esta.estado>0.1}" class="btn btn-success btn"
+													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado>0.1} ? 'Vacio'"></a>
+													<a th:if="${esta.estado<=0.1}" class="btn btn-danger btn"
+													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado<=0.1} ? 'Ocupado'"></a>
 												</th>
 												
 											</tr>
@@ -86,12 +87,12 @@
 									<div>
 										<table class="table table-bordered table-striped table-right">
 											<tr>
-												<th th:each="esta : ${espacios}"
-													th:if="${esta.posicion.columna==1 and esta.posicion.fila==4}">
-													<a th:if="${esta.estado==false}" class="btn btn-success btn"
-													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado==false} ? 'Vacio'"></a>
-													<a th:if="${esta.estado==true}" class="btn btn-danger btn"
-													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado==true} ? 'Ocupado'"></a>
+												<th th:each="esta : ${posiciones}"
+													th:if="${esta.columna==1 and esta.fila==4}">
+													<a th:if="${esta.estado>0.1}" class="btn btn-success btn"
+													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado>0.1} ? 'Vacio'"></a>
+													<a th:if="${esta.estado<=0.1}" class="btn btn-danger btn"
+													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado<=0.1} ? 'Ocupado'"></a>
 												</th>
 												
 											</tr>
@@ -100,12 +101,12 @@
 									<div>
 										<table class="table table-bordered table-striped table-right">
 											<tr>
-												<th th:each="esta : ${espacios}"
-													th:if="${esta.posicion.columna==1 and esta.posicion.fila==5}">
-													<a th:if="${esta.estado==false}" class="btn btn-success btn"
-													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado==false} ? 'Vacio'"></a>
-													<a th:if="${esta.estado==true}" class="btn btn-danger btn"
-													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado==true} ? 'Ocupado'"></a>
+												<th th:each="esta : ${posiciones}"
+													th:if="${esta.columna==1 and esta.fila==5}">
+													<a th:if="${esta.estado>0.1}" class="btn btn-success btn"
+													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado>0.1} ? 'Vacio'"></a>
+													<a th:if="${esta.estado<=0.1}" class="btn btn-danger btn"
+													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado<=0.1} ? 'Ocupado'"></a>
 												</th>
 												
 											</tr>
@@ -114,12 +115,12 @@
 									<div>
 										<table class="table table-bordered table-striped table-right">
 											<tr>
-												<th th:each="esta : ${espacios}"
-													th:if="${esta.posicion.columna==1 and esta.posicion.fila==6}">
-													<a th:if="${esta.estado==false}" class="btn btn-success btn"
-													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado==false} ? 'Vacio'"></a>
-													<a th:if="${esta.estado==true}" class="btn btn-danger btn"
-													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado==true} ? 'Ocupado'"></a>
+												<th th:each="esta : ${posiciones}"
+													th:if="${esta.columna==1 and esta.fila==6}">
+													<a th:if="${esta.estado>0.1}" class="btn btn-success btn"
+													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado>0.1} ? 'Vacio'"></a>
+													<a th:if="${esta.estado<=0.1}" class="btn btn-danger btn"
+													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado<=0.1} ? 'Ocupado'"></a>
 												</th>
 												
 											</tr>
@@ -139,12 +140,12 @@
 									<div>
 										<table class="table table-bordered table-striped table-right">
 											<tr>
-												<th th:each="esta : ${espacios}"
-													th:if="${esta.posicion.columna==2 and esta.posicion.fila==1}">
-													<a th:if="${esta.estado==false}" class="btn btn-success btn"
-													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado==false} ? 'Vacio'"></a>
-													<a th:if="${esta.estado==true}" class="btn btn-danger btn"
-													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado==true} ? 'Ocupado'"></a>
+												<th th:each="esta : ${posiciones}"
+													th:if="${esta.columna==2 and esta.fila==1}">
+													<a th:if="${esta.estado>0.1}" class="btn btn-success btn"
+													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado>0.1} ? 'Vacio'"></a>
+													<a th:if="${esta.estado<=0.1}" class="btn btn-danger btn"
+													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado<=0.1} ? 'Ocupado'"></a>
 												</th>
 												
 											</tr>
@@ -153,12 +154,12 @@
 									<div>
 										<table class="table table-bordered table-striped table-right">
 											<tr>
-												<th th:each="esta : ${espacios}"
-													th:if="${esta.posicion.columna==2 and esta.posicion.fila==2}">
-													<a th:if="${esta.estado==false}" class="btn btn-success btn"
-													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado==false} ? 'Vacio'"></a>
-													<a th:if="${esta.estado==true}" class="btn btn-danger btn"
-													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado==true} ? 'Ocupado'"></a>
+												<th th:each="esta : ${posiciones}"
+													th:if="${esta.columna==2 and esta.fila==2}">
+													<a th:if="${esta.estado>0.1}" class="btn btn-success btn"
+													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado>0.1} ? 'Vacio'"></a>
+													<a th:if="${esta.estado<=0.1}" class="btn btn-danger btn"
+													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado<=0.1} ? 'Ocupado'"></a>
 												</th>
 												
 											</tr>
@@ -167,12 +168,12 @@
 									<div>
 										<table class="table table-bordered table-striped table-right">
 											<tr>
-												<th th:each="esta : ${espacios}"
-													th:if="${esta.posicion.columna==2 and esta.posicion.fila==3}">
-													<a th:if="${esta.estado==false}" class="btn btn-success btn"
-													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado==false} ? 'Vacio'"></a>
-													<a th:if="${esta.estado==true}" class="btn btn-danger btn"
-													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado==true} ? 'Ocupado'"></a>
+												<th th:each="esta : ${posiciones}"
+													th:if="${esta.columna==2 and esta.fila==3}">
+													<a th:if="${esta.estado>0.1}" class="btn btn-success btn"
+													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado>0.1} ? 'Vacio'"></a>
+													<a th:if="${esta.estado<=0.1}" class="btn btn-danger btn"
+													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado<=0.1} ? 'Ocupado'"></a>
 												</th>
 												
 											</tr>
@@ -181,12 +182,12 @@
 									<div>
 										<table class="table table-bordered table-striped table-right">
 											<tr>
-												<th th:each="esta : ${espacios}"
-													th:if="${esta.posicion.columna==2 and esta.posicion.fila==4}">
-													<a th:if="${esta.estado==false}" class="btn btn-success btn"
-													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado==false} ? 'Vacio'"></a>
-													<a th:if="${esta.estado==true}" class="btn btn-danger btn"
-													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado==true} ? 'Ocupado'"></a>
+												<th th:each="esta : ${posiciones}"
+													th:if="${esta.columna==2 and esta.fila==4}">
+													<a th:if="${esta.estado>0.1}" class="btn btn-success btn"
+													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado>0.1} ? 'Vacio'"></a>
+													<a th:if="${esta.estado<=0.1}" class="btn btn-danger btn"
+													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado<=0.1} ? 'Ocupado'"></a>
 												</th>
 												
 											</tr>
@@ -195,12 +196,12 @@
 									<div>
 										<table class="table table-bordered table-striped table-right">
 											<tr>
-												<th th:each="esta : ${espacios}"
-													th:if="${esta.posicion.columna==2 and esta.posicion.fila==5}">
-													<a th:if="${esta.estado==false}" class="btn btn-success btn"
-													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado==false} ? 'Vacio'"></a>
-													<a th:if="${esta.estado==true}" class="btn btn-danger btn"
-													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado==true} ? 'Ocupado'"></a>
+												<th th:each="esta : ${posiciones}"
+													th:if="${esta.columna==2 and esta.fila==5}">
+													<a th:if="${esta.estado>0.1}" class="btn btn-success btn"
+													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado>0.1} ? 'Vacio'"></a>
+													<a th:if="${esta.estado<=0.1}" class="btn btn-danger btn"
+													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado<=0.1} ? 'Ocupado'"></a>
 												</th>
 												
 											</tr>
@@ -209,12 +210,12 @@
 									<div>
 										<table class="table table-bordered table-striped table-right">
 											<tr>
-												<th th:each="esta : ${espacios}"
-													th:if="${esta.posicion.columna==2 and esta.posicion.fila==6}">
-													<a th:if="${esta.estado==false}" class="btn btn-success btn"
-													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado==false} ? 'Vacio'"></a>
-													<a th:if="${esta.estado==true}" class="btn btn-danger btn"
-													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado==true} ? 'Ocupado'"></a>
+												<th th:each="esta : ${posiciones}"
+													th:if="${esta.columna==2 and esta.fila==6}">
+													<a th:if="${esta.estado>0.1}" class="btn btn-success btn"
+													th:href="@{/ingresarCaja/} + ${esta.id}" th:text="${esta.estado>0.1} ? 'Vacio'"></a>
+													<a th:if="${esta.estado<=0.1}" class="btn btn-danger btn"
+													th:href="@{/verCaja/} + ${esta.caja.id}" th:text="${esta.estado<=0.1} ? 'Ocupado'"></a>
 												</th>
 												
 											</tr>

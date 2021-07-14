@@ -24,6 +24,8 @@ public interface IEstanteService {
 	
 	public List<Posicion> findAllPosicion(Long id);
 	
+	public Posicion findByIdPos(Long id);
+	
 	//----------------------------------------------------
 	
 	
