@@ -59,5 +59,16 @@ public class CajaServiceImpl implements ICajaService {
 	public int cantidadCajas() {
 		return cajaDao.cantidadCajas();
 	}
+	
+	@Override
+	public Double ocupado(Long id) {
+		
+		if (cajaDao.ocupado(id)==null) {
+			return 0.0;
+		}
+		System.out.println("--------------->>>"+ cajaDao.ocupado(id));
+		return cajaDao.ocupado(id);
+	} 
+	
 
 }

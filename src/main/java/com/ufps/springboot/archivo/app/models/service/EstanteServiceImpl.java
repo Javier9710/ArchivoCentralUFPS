@@ -68,7 +68,8 @@ public class EstanteServiceImpl implements IEstanteService {
 	@Override
 	public Posicion findByIdPos(Long id) {
 		return posicionDao.findById(id).orElse(null);
-	} 
-	
+	}
+
+
 
 }

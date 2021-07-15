@@ -79,16 +79,29 @@ public class archivoController {
 	
 	@PostMapping(value = "/regCaja")
 	public String registrarCaja(@Valid Caja caja, @RequestParam(value = "dependencia") Long id, @RequestParam(value = "posicion") Posicion p, Model model, RedirectAttributes flash) {
+		
+		Double espacioOcupado = cajaService.ocupado(p.getId());
+		System.out.println(espacioOcupado);
+		
 		Dependencia dep = dependenciaService.findById(id);
 		caja.setDependencia(dep.getNombre());
 		caja.setDependenciaObject(dep);
 		caja.setPosicion(p);
+		//System.out.println(p.getId());
 		//e.setEstado(true);
 		if (caja.getNlegajos()=="" || Integer.parseInt(caja.getNlegajos())<=0) {
 			flash.addFlashAttribute("error", "No Pueden haber cajas con 0 Legajos");
 			return "redirect:/verEstante/"+p.getEstante().getId();
 			
 		}
+		
+		
+		if ((espacioOcupado+caja.getTamanio())>4.0) {
+			flash.addFlashAttribute("error", "El espacio disponible es menor al tamaño de la caja o ya esta lleno");
+			return "redirect:/verEstante/"+p.getEstante().getId();
+			
+		}
+		
 		cajaService.saveCaja(caja);
 		cajaService.generarLegajos(caja, caja.getNlegajos());
 		return "redirect:/verCaja/"+caja.getId();

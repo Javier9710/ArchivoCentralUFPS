@@ -21,6 +21,8 @@ public interface ICajaService {
 	
 	public int cantidadCajas();
 	
+	public Double ocupado(Long id);
+	
 	
 
 }

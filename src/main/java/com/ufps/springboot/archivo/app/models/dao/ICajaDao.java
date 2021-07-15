@@ -10,5 +10,8 @@ public interface ICajaDao extends CrudRepository<Caja, Long> {
 	
 	@Query("select count(c) from Caja c")
 	public int cantidadCajas();
+	
+	@Query("select SUM(c.tamanio) from Caja c where c.posicion.id = ?1")
+	public Double ocupado(Long id);
 
 }

@@ -40,9 +40,9 @@ public class Caja implements Serializable {
 	private String observaciones;
 	private int expediente;
 	
-	private String tipoCaja;
+	//private String tipoCaja;
 	
-	private Double tamaño;
+	private Double tamanio;
 	
 	
 	@ManyToOne
@@ -76,7 +76,7 @@ public class Caja implements Serializable {
 	public Caja(Long id, String dependencia, String codigo1, String serie, String codigo2, String subserie,
 			String codigo3, String ncaja, String nlegajos, Date fechaDesde, Date fechaHasta, String retencion,
 			String observaciones, int expediente, String tipoCaja, Posicion posicion, Dependencia dependenciaObject,
-			Double tamaño) {
+			Double tamanio) {
 		this.id = id;
 		this.dependencia = dependencia;
 		this.codigo1 = codigo1;
@@ -91,10 +91,10 @@ public class Caja implements Serializable {
 		this.retencion = retencion;
 		this.observaciones = observaciones;
 		this.expediente = expediente;
-		this.tipoCaja = tipoCaja;
+		//this.tipoCaja = tipoCaja;
 		this.posicion = posicion;
 		this.dependenciaObject = dependenciaObject;
-		this.tamaño = tamaño;
+		this.tamanio = tamanio;
 	}
 
 
@@ -256,7 +256,7 @@ public class Caja implements Serializable {
 	}
 
 
-	public String getTipoCaja() {
+/*	public String getTipoCaja() {
 		return tipoCaja;
 	}
 
@@ -264,13 +264,13 @@ public class Caja implements Serializable {
 	public void setTipoCaja(String tipoCaja) {
 		this.tipoCaja = tipoCaja;
 	}
-
-	public Double getTamaño() {
-		return tamaño;
+*/
+	public Double getTamanio() {
+		return tamanio;
 	}
 
-	public void setTamaño(Double tamaño) {
-		this.tamaño = tamaño;
+	public void setTamanio(Double tamanio) {
+		this.tamanio = tamanio;
 	}
 	
 	
